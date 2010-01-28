@@ -2,9 +2,9 @@
 
 make clean
 make html
-cd _build/
-../sphinx-to-github .
+cd _build/html
+../../sphinx-to-github .
 
-cd ..
+cd ../..
 rm -r html
 cp -r _build/html .
