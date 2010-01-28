@@ -1,0 +1,10 @@
+#!/bin/bash
+
+make clean
+make html
+cd _build/
+../sphinx-to-github .
+
+cd ..
+rm -r html
+cp -r _build/html .
