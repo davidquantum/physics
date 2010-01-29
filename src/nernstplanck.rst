@@ -214,4 +214,41 @@ corresponding to
 		\frac{\partial F_i^C}{\partial y_j^C}, \ \ \ \frac{\partial F_i^C}{\partial y_j^{\phi}}, \ \ \ 
 		\frac{\partial F_i^{\phi}}{\partial y_j^C}, \ \ \ \frac{\partial F_i^{\phi}}{\partial y_j^{\phi}}.
 
+Taking the derivatives of $F^C_i$ with respect to $y_j^C$ and $y_j^{\phi}$, we get
+
+.. math::
+	:label: bilin1
+
+		\frac{\partial F_i^C}{\partial y_j^C} = 
+		\int_{\Omega} \frac{1}{\tau} v_j^C v_i^C + D\int_{\Omega} \nabla v_j^C \cdot \nabla v_i^C
+		+ K \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_j^C v_i^C 
+		+ K\int_{\Omega} v_j^C (\nabla \phi^{n+1} \cdot \nabla v_i^C),
+	
+.. math::
+	:label: bilin2
+		
+		\frac{\partial F_i^C}{\partial y_j^{\phi}} =
+		K \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla C^{c+1} v_i^C 
+		+ K \int_{\Omega} C^{n+1} (\nabla v_j^{\phi} \cdot \nabla v_i^C).
+
+Taking the derivatives of $F^{\phi}_i$ with respect to $y_j^C$ and $y_j^{\phi}$, we get
+
+.. math::
+	:label: bilin3
+		
+		\frac{\partial F_i^{\phi}}{\partial y_j^C} =
+		- \int_{\Omega} L v_j^C v_i^{\phi},
+
+.. math::
+	:label: bilin4
+		
+		\frac{\partial F_i^{\phi}}{\partial y_j^{\phi}} =
+		\int_{\Omega} \nabla v_j^{\phi} \cdot \nabla v_i^{\phi}.
+
+In Hermes, equations :eq:`Fic` and :eq:`Fiphi` are used to define the residuum $F$, and
+equations :eq:`bilin1` - :eq:`bilin4` to define the Jacobian matrix $J$.
+
+Simulations
+-----------
+
 
