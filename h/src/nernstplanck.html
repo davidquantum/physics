@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Poisson Nernst-Planck Equation &mdash; Physics</title>
+    <link rel="stylesheet" href="../static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_MODINDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../static/jquery.js"></script>
+    <script type="text/javascript" src="../static/doctools.js"></script>
+    <link rel="top" title="Physics" href="../index.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Content</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="poisson-nernst-planck-equation">
+<h1>Poisson Nernst-Planck Equation<a class="headerlink" href="#poisson-nernst-planck-equation" title="Permalink to this headline">¶</a></h1>
+<p>This section describes how to make a weak form presentation
+of Poisson and Nernst-Planck equation system. The Nernst-Planck
+equation is often used to describe the diffusion, convection,
+and migration of charged particles:</p>
+<div class="math" id="equation-nernstplanck">
+<p><span class="eqno">(1)</span><img src="../images/math/243a804c9109edaefc4686b1e98b575948eaabbc.png" alt="\frac {\partial C} {\partial t} + \nabla \cdot
+        (-D\nabla C - z \mu F C \nabla \phi) =
+        - \vec {u} \cdot \nabla C." />
+</div></p><p>The second term on the left side is diffusion and the third term is
+the migration that is directly related to the the local voltage
+(often externally applied) <img class="math" src="../images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/>. The term on the right side is
+convection. This is not considered in the current example. The variable
+<img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> is the concentration of the particles at any point of a domain
+and this is the unknown of the equation.</p>
+<p>One application for the equation is to calculate charge configuration
+in ionic polymer transducers. Ionic polymer-metal composite is
+for instance an electromechanical actuator which is basically a thin
+polymer sheet that is coated with precious metal electrodes on both
+sides. The polymer contains fixed anions and mobile cations such
+as <img class="math" src="../images/math/582ba6b0410837d1aa15aa7aee389da1e0d73225.png" alt="H^{+}"/>, <img class="math" src="../images/math/9c5a6432a57a50b07fc2f14a93142ba8195c6d9d.png" alt="Na^{+}"/> along with some kind of solvent, most often water.</p>
+<p>When an voltage <img class="math" src="../images/math/12d58aa29201da09d8e620f8698e3a37547f6b4a.png" alt="V"/> is applied to the electrodes, the mobile cations
+start to migrate whereas immobile anions remain attached to the polymer
+backbone. This creates spatial charges, especially near the electrodes.
+One way to describe this system is to solve Nernst-Planck equation
+for mobile cations and use Poisson equation to describe the electric
+field formation inside the polymer. The poisson equation is</p>
+<div class="math" id="equation-poisson">
+<p><span class="eqno">(2)</span><img src="../images/math/94b24a8e05cbce3701d34fa0236e5127ce56bab0.png" alt="\nabla \cdot \vec{E} = \frac{F \cdot \rho}{\varepsilon}," />
+</div></p><p>where <img class="math" src="../images/math/fa2fa899f0afb05d6837885523503a2d4df434f9.png" alt="E"/> could be written as <img class="math" src="../images/math/b94637b76d8e31c4ef33cb40a7f2ad51bd1d685d.png" alt="\nabla \phi = - \vec{E}"/> and <img class="math" src="../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> is
+charge density, <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F"/> is the Faraday constant and <img class="math" src="../images/math/e2a63918a6fa75b62ad87ad17aaf65f782d71546.png" alt="\varepsilon"/> is dielectric
+permittivity. The term <img class="math" src="../images/math/0027034d8a10372a06deaf4f4084c01956587479.png" alt="\rho"/> could be written as:</p>
+<div class="math" id="equation-rho">
+<p><span class="eqno">(3)</span><img src="../images/math/659709b83dafb259c1f358f5607e7e5fc193e66f.png" alt="\rho = C - C_{anion}," />
+</div></p><p>where <img class="math" src="../images/math/0e0e6e306213efbba21239016f4c49489ef4b322.png" alt="C_{anion}"/> is a constant and equals anion concentration. Apparently
+for IPMC, the initial spatial concentration of anions and cations are equal.
+The inital configuration is shown:</p>
+<div align="center" class="align-center"><img alt="Initial configuration of IPMC." class="align-center" src="../images/IPMC.png" style="width: 377px; height: 173px;" /></div>
+<p>The purploe dots are mobile cations. When a voltage is applied, the anions
+drift:</p>
+<div align="center" class="align-center"><img alt="Bent IPMC" class="align-center" src="../images/IPMC_bent.png" style="width: 385px; height: 290px;" /></div>
+<p>This eventually results in actuation (mostly bending) of the material (not considered in this section).</p>
+<p>To solve equations <a href="#equation-nernstplanck">(1)</a> and <a href="#equation-poisson">(2)</a> boundary conditions must be specified as well.
+When solving in 2D, just a cross section is considered. The boundaries are
+shown in:</p>
+<div align="center" class="align-center"><img alt="IPMC boundaries" class="align-center" src="../images/IPMC_schematic.png" style="width: 409px; height: 140px;" /></div>
+<p>For Nernst-Planck equation <a href="#equation-nernstplanck">(1)</a>, all the boundaries have the same, insulation
+boundary conditions:</p>
+<div class="math" id="equation-nernstboundary">
+<p><span class="eqno">(4)</span><img src="../images/math/67e2b2ca7b5b298f5a04bf02e2fe65ffb9c51630.png" alt="-D \frac{\partial C}{\partial n} - z \mu F C \frac{\partial \phi} {\partial n} = 0" />
+</div></p><p>For Poisson equation:</p>
+<blockquote>
+<ol class="arabic simple">
+<li>(positive voltage): <img class="math" src="../images/math/bc82ad5191fcffd6c1affc79abf42ad3b9a08670.png" alt="\frac{\partial \phi}{\partial n} = -E_{applied}"/>. We cannot apply just Dirichlet boundary, i.e. <img class="math" src="../images/math/0908c9dfd7fc30648dcca15f81264c1e77797b12.png" alt="\phi = 3V"/> as then <a href="#equation-nernstplanck">(1)</a> would not converge in time. It means that the charge accumulation near the boundary would increase continually.</li>
+<li>(ground): Dirichlet boundary <img class="math" src="../images/math/8f5799a5ace8666d73938f6e2d5bc994777a8f87.png" alt="\phi = 0"/>.</li>
+<li>(insulation): Neumann boundary <img class="math" src="../images/math/4baf98907f5808c209019ded9455da69a9e16e6a.png" alt="\frac{\partial \phi}{\partial n} = 0"/>.</li>
+</ol>
+</blockquote>
+<div class="section" id="weak-form-of-the-equations">
+<h2>Weak Form of the Equations<a class="headerlink" href="#weak-form-of-the-equations" title="Permalink to this headline">¶</a></h2>
+<p>To implement the <a href="#equation-nernstplanck">(1)</a> and <a href="#equation-poisson">(2)</a> in Hermes2D, the weak form must be derived. First of all let&#8217;s denote:</p>
+<ul class="simple">
+<li><img class="math" src="../images/math/6bbc9a9341e0d9a91dc0ff26249218005f6c962f.png" alt="K=z \mu F"/></li>
+<li><img class="math" src="../images/math/76e93e5ec6d34e7de2e1f4f09ebed04d0ce14df3.png" alt="L=\frac{F}{\varepsilon}"/></li>
+</ul>
+<p>So equations <a href="#equation-nernstplanck">(1)</a> and <a href="#equation-poisson">(2)</a> can be written:</p>
+<div class="math" id="equation-nernstplancksimple">
+<p><span class="eqno">(5)</span><img src="../images/math/15617d766a314512aaee82fbc16c3ceffb79680c.png" alt="\frac{\partial C}{\partial t}-D\Delta C-KC\Delta\phi=0," />
+</div></p><div class="math" id="equation-poissonsimple">
+<p><span class="eqno">(6)</span><img src="../images/math/6fc6ccfba2e9b01353c95e92263f7b437d3e19b4.png" alt="-\Delta\phi=L\left(C-C_{0}\right)," />
+</div></p><p>Then the boundary condition <a href="#equation-nernstboundary">(4)</a> becomes</p>
+<div class="math" id="equation-nernstboundarysimple">
+<p><span class="eqno">(7)</span><img src="../images/math/96b3d3e743272d6716d8f76c4466583be8a0c380.png" alt="-D\frac{\partial C}{\partial n}-KC\frac{\partial\phi}{\partial n}=0." />
+</div></p><p>Weak form of equation <a href="#equation-nernstplancksimple">(5)</a> is:</p>
+<div class="math" id="equation-nernstweak1">
+<p><span class="eqno">(8)</span><img src="../images/math/675f6e4409c833697e594ff83d909d9fe34abf46.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v
+        -\int_{\Omega}D\Delta Cv-\int_{\Omega}KC\Delta v=0," />
+</div></p><p>where <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v"/> is a test function. When adding the boundary condition <a href="#equation-nernstboundarysimple">(7)</a>:</p>
+<div class="math" id="equation-nernstweak2">
+<p><span class="eqno">(9)</span><img src="../images/math/0e4864e9c3dffbb1d1a80d02dbd91d438b9efc0e.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v+
+        D\int_{\Omega}\nabla C\cdot\nabla v-
+        D\int_{\Gamma}\frac{\partial C}{\partial n}v+
+        K\int_{\Omega}\nabla\phi\cdot\nabla\left(Cv\right)-
+        \int_{\Gamma}K\frac{\partial\phi}{\partial n}Cv=0," />
+</div></p><p>where the terms 3 and 5 became <img class="math" src="../images/math/bc1f9d9bf8a1b606a4188b5ce9a2af1809e27a89.png" alt="0"/> due to the boundary condition.
+By expanding the nonlinear 4th term, the final weak form is:</p>
+<div class="math" id="equation-nernstweak3">
+<p><span class="eqno">(10)</span><img src="../images/math/834f8a840aaf2607fe4f0a74d2232b3a6d66b0c9.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v+
+        D\int_{\Omega}\nabla C\cdot\nabla v +
+        K\int_{\Omega}\nabla\phi\cdot\nabla Cv+
+        K\int_{\Omega}C\left(\nabla\phi\cdot\nabla v\right)=0." />
+</div></p><p>The weak form of equation <a href="#equation-poissonsimple">(6)</a> with test function <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u"/> is:</p>
+<div class="math" id="equation-poissonweak1">
+<p><span class="eqno">(11)</span><img src="../images/math/45910194e7bb7d4476870cc20e542d1a07e75df0.png" alt="-\int_{\Omega}\Delta\phi u-\int_{\Omega}LCu+
+        \int_{\Omega}LC_{0}u+\int_{\Gamma}\frac{\partial \phi}{\partial n}u=0." />
+</div></p><p>After expanding the Laplace&#8217; terms, the equation becomes:</p>
+<div class="math" id="equation-poissonweak2">
+<p><span class="eqno">(12)</span><img src="../images/math/0f31fb0124a7949716e3312d8519d724e1950d50.png" alt="\int_{\Omega}\nabla\phi\cdot\nabla u-\int_{\Omega}LCv+
+        \int_{\Omega}LC_{0}u +\int_{\Gamma}\frac{\partial \phi}{\partial n}u=0," />
+</div></p><p>where the last term could be written <img class="math" src="../images/math/929a5f14d4bcb07f6aa4ec9c0b165fa21683e92f.png" alt="-\int_{\Gamma}E_{applied}u"/>.</p>
+</div>
+<div class="section" id="jacobian-matrix">
+<h2>Jacobian matrix<a class="headerlink" href="#jacobian-matrix" title="Permalink to this headline">¶</a></h2>
+<p>Equation <a href="#equation-nernstweak3">(10)</a> is time dependent, thus some time stepping
+method must be chosen. For simplicity we start with first order Euler implicit method</p>
+<div class="math" id="equation-euler">
+<p><span class="eqno">(13)</span><img src="../images/math/73063a852b0ac703fa6d7549e6c3ab75d2d48b39.png" alt="\frac{\partial C}{\partial t} \approx \frac{C^{n+1} - C^n}{\tau}" />
+</div></p><p>where <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau"/> is the time step. We will use the following notation:</p>
+<div class="math" id="equation-cplus">
+<p><span class="eqno">(14)</span><img src="../images/math/87023de96ba24584f70360797618301ef5d70b90.png" alt="C^{n+1} = \sum_{k=1}^{N^C} y_k^{C} v_k^{C}, \ \ \
+          \phi^{n+1} = \sum_{k=1}^{N^{\phi}} y_k^{\phi} v_k^{\phi}." />
+</div></p><p>In the new notation, time-discretized equation <a href="#equation-nernstweak3">(10)</a> becomes:</p>
+<div class="math" id="equation-Fic">
+<p><span class="eqno">(15)</span><img src="../images/math/e4d31f77a69198935622b27971f65799545f54bb.png" alt="F_i^C(Y) = \int_{\Omega} \frac{C^{n+1}}{\tau}v_i^C - \int_{\Omega} \frac{C^{n}}{\tau}v_i^C
+        + D\int_{\Omega} \nabla C^{n+1} \cdot \nabla v_i^C + K \int_{\Omega} \nabla \phi^{n+1}\cdot
+        \nabla C^{n+1} v_i^C + K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C v_i^C)," />
+</div></p><p>and equation <a href="#equation-poissonweak2">(12)</a> becomes:</p>
+<div class="math" id="equation-Fiphi">
+<p><span class="eqno">(16)</span><img src="../images/math/5354fea6af427b77820123569949fce90bcb87e8.png" alt="F_i^{\phi}(Y) = \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_i^{\phi}
+        - \int_{\Omega} LC^{n+1}v_i^{\phi} + \int_{\Omega} LC_0 v_i^{\phi}
+        - \int_{\Gamma} E_{applied}v_i^{\phi}" />
+</div></p><p>The Jacobian matrix <img class="math" src="../images/math/393848847c8dcf7fedfba6dd771828b7e424d6c7.png" alt="DF/DY"/> has <img class="math" src="../images/math/7901356dd65ec4da1b694937cc4ffc663e90d800.png" alt="2\times 2"/> block structure, with blocks
+corresponding to</p>
+<div class="math" id="equation-jacobianelements">
+<p><span class="eqno">(17)</span><img src="../images/math/b0d9603258de955d476f11e11a1384a0f36dac82.png" alt="\frac{\partial F_i^C}{\partial y_j^C}, \ \ \ \frac{\partial F_i^C}{\partial y_j^{\phi}}, \ \ \
+        \frac{\partial F_i^{\phi}}{\partial y_j^C}, \ \ \ \frac{\partial F_i^{\phi}}{\partial y_j^{\phi}}." />
+</div></p><p>Taking the derivatives of <img class="math" src="../images/math/1f5df7624ff1a351f36d44626a528da7f5c76943.png" alt="F^C_i"/> with respect to <img class="math" src="../images/math/24a7f24bf7b5c5306d253389ead4e6f7627425d3.png" alt="y_j^C"/> and <img class="math" src="../images/math/27e56fc5cb07d389fa3f03b39fc80319e03322c7.png" alt="y_j^{\phi}"/>, we get</p>
+<div class="math" id="equation-bilin1">
+<p><span class="eqno">(18)</span><img src="../images/math/07d890756d54b8e6ff8c6456b98b97c9dc77171e.png" alt="\frac{\partial F_i^C}{\partial y_j^C} =
+        \int_{\Omega} \frac{1}{\tau} v_j^C v_i^C + D\int_{\Omega} \nabla v_j^C \cdot \nabla v_i^C
+        + K \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_j^C v_i^C
+        + K\int_{\Omega} v_j^C (\nabla \phi^{n+1} \cdot \nabla v_i^C)," />
+</div></p><div class="math" id="equation-bilin2">
+<p><span class="eqno">(19)</span><img src="../images/math/a0320066112feab58c4f84a705a0794140533f6c.png" alt="\frac{\partial F_i^C}{\partial y_j^{\phi}} =
+        K \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla C^{c+1} v_i^C
+        + K \int_{\Omega} C^{n+1} (\nabla v_j^{\phi} \cdot \nabla v_i^C)." />
+</div></p><p>Taking the derivatives of <img class="math" src="../images/math/e2979d4916ada2a84084daa472c126bb7c13ccb0.png" alt="F^{\phi}_i"/> with respect to <img class="math" src="../images/math/24a7f24bf7b5c5306d253389ead4e6f7627425d3.png" alt="y_j^C"/> and <img class="math" src="../images/math/27e56fc5cb07d389fa3f03b39fc80319e03322c7.png" alt="y_j^{\phi}"/>, we get</p>
+<div class="math" id="equation-bilin3">
+<p><span class="eqno">(20)</span><img src="../images/math/128095a50b7a761dbb34131594e81d557c955fba.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^C} =
+        - \int_{\Omega} L v_j^C v_i^{\phi}," />
+</div></p><div class="math" id="equation-bilin4">
+<p><span class="eqno">(21)</span><img src="../images/math/caaa4140cf0e4e6f362ad0c6206eecf5fc3e2643.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^{\phi}} =
+        \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla v_i^{\phi}." />
+</div></p><p>In Hermes, equations <a href="#equation-Fic">(15)</a> and <a href="#equation-Fiphi">(16)</a> are used to define the residuum <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F"/>, and
+equations <a href="#equation-bilin1">(18)</a> - <a href="#equation-bilin4">(21)</a> to define the Jacobian matrix <img class="math" src="../images/math/abb5588023cfa1ac14643e9778699f03eecc57a3.png" alt="J"/>.</p>
+</div>
+<div class="section" id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
+<p>To begin with simulations in Hermes2D, the equations <a href="#equation-Fic">(15)</a> - <a href="#equation-bilin4">(21)</a> must be implemented.
+It is done by implementing the callback functions found in  <a class="reference external" href="http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/forms.cpp">newton-np-timedep-adapt-system/forms.cpp</a>.</p>
+<p>The functions along with the boundary conditions:</p>
+<div class="highlight-python"><pre>// Poisson takes Dirichlet and Neumann boundaries
+int phi_bc_types(int marker) {
+        return (marker == SIDE_MARKER || marker == TOP_MARKER)
+                ? BC_NATURAL : BC_ESSENTIAL;
+}
+
+//Nernst-Planck takes Neumann boundaries
+int C_bc_types(int marker) {
+        return BC_NATURAL;
+}
+
+//Dirichlet boundary conditions for Poisson equation
+scalar phi_bc_values(int marker, double x, double y) {
+        return 0.0;
+}
+
+//Neumann boundary of Poisson equation as linear sufrace integral
+Scalar linear_form_surf_top(int n, double *wt, Func&lt;Real&gt; *v, Geom&lt;Real&gt; *e, ExtData&lt;Scalar&gt; *ext) {
+        return -E_FIELD * int_v&lt;Real, Scalar&gt;(n, wt, v);
+}</pre>
+</div>
+<p>are assembled as follows:</p>
+<div class="highlight-python"><pre>WeakForm wf(2);
+Solution Cp, Ci, phip, phii;
+wf.add_biform(0, 0, callback(J_euler_DFcDYc), UNSYM, ANY, 1, &amp;phii);
+wf.add_biform(1, 1, callback(J_euler_DFphiDYphi), UNSYM);
+wf.add_biform(0, 1, callback(J_euler_DFcDYphi), UNSYM, ANY, 1, &amp;Ci);
+wf.add_biform(1, 0, callback(J_euler_DFphiDYc), UNSYM);
+wf.add_liform(0, callback(Fc_euler), ANY, 3, &amp;Cp, &amp;Ci, &amp;phii);
+wf.add_liform(1, callback(Fphi_euler), ANY, 2, &amp;Ci, &amp;phii);
+wf.add_liform_surf(1, callback(linear_form_surf_top), TOP_MARKER);</pre>
+</div>
+<p>where the variables <tt class="docutils literal"><span class="pre">Cp</span></tt>, <tt class="docutils literal"><span class="pre">Ci</span></tt>, <tt class="docutils literal"><span class="pre">phip</span></tt>, and <tt class="docutils literal"><span class="pre">phii</span></tt> are solutions concentration
+<img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> and voltage <img class="math" src="../images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/>. The suffixes <em>i</em> and <em>p</em> are current iteration and previous
+iteration respectively.</p>
+<p>When it comes to meshing, it should be considered that the gradient of <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> near the boundaries will
+be higher than gradients of <img class="math" src="../images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/>. This allows us to create different meshes for those variables. In
+<a class="reference external" href="http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/main.cpp">main.cpp</a>.
+the following code in the <em>main()</em> function is for having multimeshing:</p>
+<div class="highlight-python"><pre>H1Space C(&amp;Cmesh, &amp;shapeset);
+H1Space phi(MULTIMESH ? &amp;phimesh : &amp;Cmesh, &amp;shapeset);</pre>
+</div>
+<p>When <tt class="docutils literal"><span class="pre">MULTIMESH</span></tt> is defined in <a class="reference external" href="http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/header.h">header.h</a>.
+then different H1Spaces for <tt class="docutils literal"><span class="pre">phi</span></tt> and <tt class="docutils literal"><span class="pre">C</span></tt> are created. It must be noted that when adaptivity
+is not used, the multimeshing in this example does not have any advantage, however, when
+adaptivity is turned on, then mesh for H1Space <tt class="docutils literal"><span class="pre">C</span></tt> is refined much more than for <tt class="docutils literal"><span class="pre">phi</span></tt>.</p>
+</div>
+<div class="section" id="non-adaptive-solution">
+<h2>Non adaptive solution<a class="headerlink" href="#non-adaptive-solution" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="../index.html">Table Of Contents</a></h3>
+            <ul>
+<li><a class="reference external" href="">Poisson Nernst-Planck Equation</a><ul>
+<li><a class="reference external" href="#weak-form-of-the-equations">Weak Form of the Equations</a></li>
+<li><a class="reference external" href="#jacobian-matrix">Jacobian matrix</a></li>
+<li><a class="reference external" href="#simulation">Simulation</a></li>
+<li><a class="reference external" href="#non-adaptive-solution">Non adaptive solution</a></li>
+</ul>
+</li>
+</ul>
+
+            <h4>Previous topic</h4>
+            <p class="topless"><a href="introduction.html"
+                                  title="previous chapter">Introduction</a></p>
+          <div id="searchbox" style="display: none">
+            <h3>Quick search</h3>
+              <form class="search" action="../search.html" method="get">
+                <input type="text" name="q" size="18" />
+                <input type="submit" value="Go" />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+              <p class="searchtip" style="font-size: 90%">
+              Enter search terms or a module, class or function name.
+              </p>
+          </div>
+          <script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             >previous</a> |</li>
+        <li><a href="../index.html">Content</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      &copy; Copyright 2010, David Pugal.
+      Last updated on Jan 29, 2010.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
+    </div>
+  </body>
+</html>
