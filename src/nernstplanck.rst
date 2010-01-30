@@ -248,7 +248,64 @@ Taking the derivatives of $F^{\phi}_i$ with respect to $y_j^C$ and $y_j^{\phi}$,
 In Hermes, equations :eq:`Fic` and :eq:`Fiphi` are used to define the residuum $F$, and
 equations :eq:`bilin1` - :eq:`bilin4` to define the Jacobian matrix $J$.
 
-Simulations
------------
+Simulation
+----------
 
+To begin with simulations in Hermes2D, the equations :eq:`Fic` - :eq:`bilin4` must be implemented.
+It is done by implementing the callback functions found in  `newton-np-timedep-adapt-system/forms.cpp <http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/forms.cpp>`_.
+
+The functions along with the boundary conditions::
+
+	// Poisson takes Dirichlet and Neumann boundaries
+	int phi_bc_types(int marker) {
+		return (marker == SIDE_MARKER || marker == TOP_MARKER)
+			? BC_NATURAL : BC_ESSENTIAL;
+	}
+	
+	//Nernst-Planck takes Neumann boundaries
+	int C_bc_types(int marker) {
+		return BC_NATURAL;
+	}
+	
+	//Dirichlet boundary conditions for Poisson equation
+	scalar phi_bc_values(int marker, double x, double y) {
+		return 0.0;
+	}
+
+	//Neumann boundary of Poisson equation as linear sufrace integral
+	Scalar linear_form_surf_top(int n, double *wt, Func<Real> *v, Geom<Real> *e, ExtData<Scalar> *ext) {
+		return -E_FIELD * int_v<Real, Scalar>(n, wt, v);
+	}
+
+are assembled as follows::
+
+	WeakForm wf(2);
+	Solution Cp, Ci, phip, phii;
+	wf.add_biform(0, 0, callback(J_euler_DFcDYc), UNSYM, ANY, 1, &phii);
+	wf.add_biform(1, 1, callback(J_euler_DFphiDYphi), UNSYM);
+	wf.add_biform(0, 1, callback(J_euler_DFcDYphi), UNSYM, ANY, 1, &Ci);
+	wf.add_biform(1, 0, callback(J_euler_DFphiDYc), UNSYM);
+	wf.add_liform(0, callback(Fc_euler), ANY, 3, &Cp, &Ci, &phii);
+	wf.add_liform(1, callback(Fphi_euler), ANY, 2, &Ci, &phii);
+	wf.add_liform_surf(1, callback(linear_form_surf_top), TOP_MARKER);
+
+where the variables ``Cp``, ``Ci``, ``phip``, and ``phii`` are solutions concentration
+$C$ and voltage $\phi$. The suffixes *i* and *p* are current iteration and previous
+iteration respectively.
+
+When it comes to meshing, it should be considered that the gradient of $C$ near the boundaries will
+be higher than gradients of $\phi$. This allows us to create different meshes for those variables. In
+`main.cpp <http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/main.cpp>`_.
+the following code in the *main()* function is for having multimeshing::
+	
+	H1Space C(&Cmesh, &shapeset);
+	H1Space phi(MULTIMESH ? &phimesh : &Cmesh, &shapeset);
+
+When ``MULTIMESH`` is defined in `header.h <http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/header.h>`_.
+then different H1Spaces for ``phi`` and ``C`` are created. It must be noted that when adaptivity
+is not used, the multimeshing in this example does not have any advantage, however, when
+adaptivity is turned on, then mesh for H1Space ``C`` is refined much more than for ``phi``.
+
+Non adaptive solution
+---------------------
 
