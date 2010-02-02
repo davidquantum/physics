@@ -163,7 +163,7 @@ As the terms 3 and 4 are equal and cancel out, the final weak form of equation
 	:label: nernstweak4
 
 		\int_{\Omega}\frac{\partial C}{\partial t}v+
-		D\int_{\Omega}\nabla C \cdot \nabla v-
+		D\int_{\Omega}\nabla C \cdot \nabla v+
 		K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right)=0
 		
 The weak form of equation :eq:`poissonsimple` with test function $u$ is:
@@ -209,8 +209,8 @@ In the new notation, time-discretized equation :eq:`nernstweak3` becomes:
 	:label: Fic
 
 		F_i^C(Y) = \int_{\Omega} \frac{C^{n+1}}{\tau}v_i^C - \int_{\Omega} \frac{C^{n}}{\tau}v_i^C
-		+ D\int_{\Omega} \nabla C^{n+1} \cdot \nabla v_i^C + K \int_{\Omega} \nabla \phi^{n+1}\cdot 
-		\nabla C^{n+1} v_i^C + K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C v_i^C),
+		+ D\int_{\Omega} \nabla C^{n+1} \cdot \nabla v_i^C  
+		+ K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C v_i^C),
 
 and equation :eq:`poissonweak2` becomes:
 
@@ -237,7 +237,6 @@ Taking the derivatives of $F^C_i$ with respect to $y_j^C$ and $y_j^{\phi}$, we g
 
 		\frac{\partial F_i^C}{\partial y_j^C} = 
 		\int_{\Omega} \frac{1}{\tau} v_j^C v_i^C + D\int_{\Omega} \nabla v_j^C \cdot \nabla v_i^C
-		+ K \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_j^C v_i^C 
 		+ K\int_{\Omega} v_j^C (\nabla \phi^{n+1} \cdot \nabla v_i^C),
 	
 .. math::
