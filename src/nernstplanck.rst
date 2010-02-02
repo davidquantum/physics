@@ -324,3 +324,32 @@ adaptivity is turned on, then mesh for H1Space ``C`` is refined much more than f
 Non adaptive solution
 ---------------------
 
+The following figure shows the calculated concentration $C$ inside the IPMC.
+
+.. image:: img/nonadapt_conc.png
+	:align: center
+	:alt: Calculated concentration
+
+As it can be seen, the concentration is rather uniform in the middle of domain. In fact, most of the
+concentration gradient is near the electrodes, within 1% of the total thickness. That is why the refinement
+of the mesh prior solving is done near the electrode boundaries. Here we see the zoomed in region of 
+the boundary where $\phi=0$ for :eq:`poisson` (Dirichlet BC):
+ 
+.. image:: img/nonadapt_conc2.png
+	:align: center
+	:alt: Calculated concentration near the electrodes
+
+
+The voltage inside the IPMC forms as follows:
+
+.. image:: img/nonadapt_phi.png
+	:align: center
+	:alt: Calculated voltage inside the IPMC
+
+Here we see that the voltage gradient is much more uniform across the thickness than it is for $C$.
+That is where **the adaptive multimeshing** can become useful.
+
+Adaptive solution
+-----------------
+
+Will come soon.
