@@ -106,7 +106,7 @@ So equations :eq:`nernstplanck` and :eq:`poisson` can be written:
 .. math::
 	:label: nernstplancksimple
 		
-		\frac{\partial C}{\partial t}-D\Delta C-KC\Delta\phi=0,
+		\frac{\partial C}{\partial t}-D\Delta C-K\nabla\cdot \left(C\nabla\phi\right)=0,
 
 .. math::
 	:label: poissonsimple
@@ -126,30 +126,46 @@ Weak form of equation :eq:`nernstplancksimple` is:
 	:label: nernstweak1
 
 		\int_{\Omega}\frac{\partial C}{\partial t}v
-		-\int_{\Omega}D\Delta Cv-\int_{\Omega}KC\Delta v=0,
+		-\int_{\Omega}D\Delta Cv-\int_{\Omega}K\nabla C\cdot
+		\nabla\phi v - \int_{\Omega}KC\Delta \phi v=0,
 
-where $v$ is a test function. When adding the boundary condition :eq:`nernstboundarysimple`:
+where $v$ is a test function. When applying
+Green's first identity to expand the terms that contain Laplacian
+and adding the boundary condition :eq:`nernstboundarysimple`, the :eq:`nernstweak1`
+becomes:
 
 .. math::
 	:label: nernstweak2
 
 		\int_{\Omega}\frac{\partial C}{\partial t}v+
 		D\int_{\Omega}\nabla C\cdot\nabla v-
-		D\int_{\Gamma}\frac{\partial C}{\partial n}v+
-		K\int_{\Omega}\nabla\phi\cdot\nabla\left(Cv\right)-
+		K\int_{\Omega}\nabla C \cdot \nabla \phi v+
+		K\int_{\Omega}\nabla\left(Cv\right)\cdot \nabla v-
+		D\int_{\Gamma}\frac{\partial C}{\partial n}v-
 		\int_{\Gamma}K\frac{\partial\phi}{\partial n}Cv=0,
 
-where the terms 3 and 5 became $0$ due to the boundary condition. 
-By expanding the nonlinear 4th term, the final weak form is:
+where the terms 5 and 6 equal $0$ due to the boundary condition. 
+By expanding the nonlinear 4th term, the weak form becomes:
 
 .. math::
 	:label: nernstweak3
 
 		\int_{\Omega}\frac{\partial C}{\partial t}v+
-		D\int_{\Omega}\nabla C\cdot\nabla v +
-		K\int_{\Omega}\nabla\phi\cdot\nabla Cv+
-		K\int_{\Omega}C\left(\nabla\phi\cdot\nabla v\right)=0.
+		D\int_{\Omega}\nabla C \cdot \nabla v-
+		K\int_{\Omega}\nabla C \cdot \nabla \phi v+
+		K\int_{\Omega}\nabla \phi \cdot \nabla C v+
+		K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right)=0
 
+As the terms 3 and 4 are equal and cancel out, the final weak form of equation
+:eq:`nernstplancksimple` is
+
+.. math::
+	:label: nernstweak4
+
+		\int_{\Omega}\frac{\partial C}{\partial t}v+
+		D\int_{\Omega}\nabla C \cdot \nabla v-
+		K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right)=0
+		
 The weak form of equation :eq:`poissonsimple` with test function $u$ is:
 
 .. math::
