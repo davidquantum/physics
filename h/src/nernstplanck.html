@@ -109,7 +109,7 @@ boundary conditions:</p>
 </ul>
 <p>So equations <a href="#equation-nernstplanck">(1)</a> and <a href="#equation-poisson">(2)</a> can be written:</p>
 <div class="math" id="equation-nernstplancksimple">
-<p><span class="eqno">(5)</span><img src="../images/math/15617d766a314512aaee82fbc16c3ceffb79680c.png" alt="\frac{\partial C}{\partial t}-D\Delta C-KC\Delta\phi=0," />
+<p><span class="eqno">(5)</span><img src="../images/math/359c646c1f2e5c173b10d29c95a6a1375d8721ed.png" alt="\frac{\partial C}{\partial t}-D\Delta C-K\nabla\cdot \left(C\nabla\phi\right)=0," />
 </div></p><div class="math" id="equation-poissonsimple">
 <p><span class="eqno">(6)</span><img src="../images/math/6fc6ccfba2e9b01353c95e92263f7b437d3e19b4.png" alt="-\Delta\phi=L\left(C-C_{0}\right)," />
 </div></p><p>Then the boundary condition <a href="#equation-nernstboundary">(4)</a> becomes</p>
@@ -117,29 +117,41 @@ boundary conditions:</p>
 <p><span class="eqno">(7)</span><img src="../images/math/96b3d3e743272d6716d8f76c4466583be8a0c380.png" alt="-D\frac{\partial C}{\partial n}-KC\frac{\partial\phi}{\partial n}=0." />
 </div></p><p>Weak form of equation <a href="#equation-nernstplancksimple">(5)</a> is:</p>
 <div class="math" id="equation-nernstweak1">
-<p><span class="eqno">(8)</span><img src="../images/math/675f6e4409c833697e594ff83d909d9fe34abf46.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v
-        -\int_{\Omega}D\Delta Cv-\int_{\Omega}KC\Delta v=0," />
-</div></p><p>where <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v"/> is a test function. When adding the boundary condition <a href="#equation-nernstboundarysimple">(7)</a>:</p>
+<p><span class="eqno">(8)</span><img src="../images/math/1e0d3a07e24ea10823543bbd88a33ce2ef9aa35f.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v
+        -\int_{\Omega}D\Delta Cv-\int_{\Omega}K\nabla C\cdot
+        \nabla\phi v - \int_{\Omega}KC\Delta \phi v=0," />
+</div></p><p>where <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v"/> is a test function. When applying
+Green&#8217;s first identity to expand the terms that contain Laplacian
+and adding the boundary condition <a href="#equation-nernstboundarysimple">(7)</a>, the <a href="#equation-nernstweak1">(8)</a>
+becomes:</p>
 <div class="math" id="equation-nernstweak2">
-<p><span class="eqno">(9)</span><img src="../images/math/0e4864e9c3dffbb1d1a80d02dbd91d438b9efc0e.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v+
+<p><span class="eqno">(9)</span><img src="../images/math/4ed8e272b8cd45de856f4f61a6a41e039cbcbacd.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v+
         D\int_{\Omega}\nabla C\cdot\nabla v-
-        D\int_{\Gamma}\frac{\partial C}{\partial n}v+
-        K\int_{\Omega}\nabla\phi\cdot\nabla\left(Cv\right)-
+        K\int_{\Omega}\nabla C \cdot \nabla \phi v+
+        K\int_{\Omega}\nabla\left(Cv\right)\cdot \nabla v-
+        D\int_{\Gamma}\frac{\partial C}{\partial n}v-
         \int_{\Gamma}K\frac{\partial\phi}{\partial n}Cv=0," />
-</div></p><p>where the terms 3 and 5 became <img class="math" src="../images/math/bc1f9d9bf8a1b606a4188b5ce9a2af1809e27a89.png" alt="0"/> due to the boundary condition.
-By expanding the nonlinear 4th term, the final weak form is:</p>
+</div></p><p>where the terms 5 and 6 equal <img class="math" src="../images/math/bc1f9d9bf8a1b606a4188b5ce9a2af1809e27a89.png" alt="0"/> due to the boundary condition.
+By expanding the nonlinear 4th term, the weak form becomes:</p>
 <div class="math" id="equation-nernstweak3">
-<p><span class="eqno">(10)</span><img src="../images/math/834f8a840aaf2607fe4f0a74d2232b3a6d66b0c9.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v+
-        D\int_{\Omega}\nabla C\cdot\nabla v +
-        K\int_{\Omega}\nabla\phi\cdot\nabla Cv+
-        K\int_{\Omega}C\left(\nabla\phi\cdot\nabla v\right)=0." />
+<p><span class="eqno">(10)</span><img src="../images/math/59d75ed4986d0fae3785e28984f0df6b0406fa2f.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v+
+        D\int_{\Omega}\nabla C \cdot \nabla v-
+        K\int_{\Omega}\nabla C \cdot \nabla \phi v+
+        K\int_{\Omega}\nabla \phi \cdot \nabla C v+
+        K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right)=0" />
+</div></p><p>As the terms 3 and 4 are equal and cancel out, the final weak form of equation
+<a href="#equation-nernstplancksimple">(5)</a> is</p>
+<div class="math" id="equation-nernstweak4">
+<p><span class="eqno">(11)</span><img src="../images/math/3e70bd5e77113abb071575b7b16a299c75378b70.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v+
+        D\int_{\Omega}\nabla C \cdot \nabla v+
+        K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right)=0" />
 </div></p><p>The weak form of equation <a href="#equation-poissonsimple">(6)</a> with test function <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u"/> is:</p>
 <div class="math" id="equation-poissonweak1">
-<p><span class="eqno">(11)</span><img src="../images/math/45910194e7bb7d4476870cc20e542d1a07e75df0.png" alt="-\int_{\Omega}\Delta\phi u-\int_{\Omega}LCu+
+<p><span class="eqno">(12)</span><img src="../images/math/45910194e7bb7d4476870cc20e542d1a07e75df0.png" alt="-\int_{\Omega}\Delta\phi u-\int_{\Omega}LCu+
         \int_{\Omega}LC_{0}u+\int_{\Gamma}\frac{\partial \phi}{\partial n}u=0." />
 </div></p><p>After expanding the Laplace&#8217; terms, the equation becomes:</p>
 <div class="math" id="equation-poissonweak2">
-<p><span class="eqno">(12)</span><img src="../images/math/0f31fb0124a7949716e3312d8519d724e1950d50.png" alt="\int_{\Omega}\nabla\phi\cdot\nabla u-\int_{\Omega}LCv+
+<p><span class="eqno">(13)</span><img src="../images/math/0f31fb0124a7949716e3312d8519d724e1950d50.png" alt="\int_{\Omega}\nabla\phi\cdot\nabla u-\int_{\Omega}LCv+
         \int_{\Omega}LC_{0}u +\int_{\Gamma}\frac{\partial \phi}{\partial n}u=0," />
 </div></p><p>where the last term could be written <img class="math" src="../images/math/929a5f14d4bcb07f6aa4ec9c0b165fa21683e92f.png" alt="-\int_{\Gamma}E_{applied}u"/>.</p>
 </div>
@@ -148,49 +160,48 @@ By expanding the nonlinear 4th term, the final weak form is:</p>
 <p>Equation <a href="#equation-nernstweak3">(10)</a> is time dependent, thus some time stepping
 method must be chosen. For simplicity we start with first order Euler implicit method</p>
 <div class="math" id="equation-euler">
-<p><span class="eqno">(13)</span><img src="../images/math/73063a852b0ac703fa6d7549e6c3ab75d2d48b39.png" alt="\frac{\partial C}{\partial t} \approx \frac{C^{n+1} - C^n}{\tau}" />
+<p><span class="eqno">(14)</span><img src="../images/math/73063a852b0ac703fa6d7549e6c3ab75d2d48b39.png" alt="\frac{\partial C}{\partial t} \approx \frac{C^{n+1} - C^n}{\tau}" />
 </div></p><p>where <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau"/> is the time step. We will use the following notation:</p>
 <div class="math" id="equation-cplus">
-<p><span class="eqno">(14)</span><img src="../images/math/87023de96ba24584f70360797618301ef5d70b90.png" alt="C^{n+1} = \sum_{k=1}^{N^C} y_k^{C} v_k^{C}, \ \ \
+<p><span class="eqno">(15)</span><img src="../images/math/87023de96ba24584f70360797618301ef5d70b90.png" alt="C^{n+1} = \sum_{k=1}^{N^C} y_k^{C} v_k^{C}, \ \ \
           \phi^{n+1} = \sum_{k=1}^{N^{\phi}} y_k^{\phi} v_k^{\phi}." />
 </div></p><p>In the new notation, time-discretized equation <a href="#equation-nernstweak3">(10)</a> becomes:</p>
 <div class="math" id="equation-Fic">
-<p><span class="eqno">(15)</span><img src="../images/math/e4d31f77a69198935622b27971f65799545f54bb.png" alt="F_i^C(Y) = \int_{\Omega} \frac{C^{n+1}}{\tau}v_i^C - \int_{\Omega} \frac{C^{n}}{\tau}v_i^C
-        + D\int_{\Omega} \nabla C^{n+1} \cdot \nabla v_i^C + K \int_{\Omega} \nabla \phi^{n+1}\cdot
-        \nabla C^{n+1} v_i^C + K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C v_i^C)," />
-</div></p><p>and equation <a href="#equation-poissonweak2">(12)</a> becomes:</p>
+<p><span class="eqno">(16)</span><img src="../images/math/6c9d32fbae4e0f2a24d2a1a32a60befb0182b3cf.png" alt="F_i^C(Y) = \int_{\Omega} \frac{C^{n+1}}{\tau}v_i^C - \int_{\Omega} \frac{C^{n}}{\tau}v_i^C
+        + D\int_{\Omega} \nabla C^{n+1} \cdot \nabla v_i^C
+        + K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C v_i^C)," />
+</div></p><p>and equation <a href="#equation-poissonweak2">(13)</a> becomes:</p>
 <div class="math" id="equation-Fiphi">
-<p><span class="eqno">(16)</span><img src="../images/math/5354fea6af427b77820123569949fce90bcb87e8.png" alt="F_i^{\phi}(Y) = \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_i^{\phi}
+<p><span class="eqno">(17)</span><img src="../images/math/5354fea6af427b77820123569949fce90bcb87e8.png" alt="F_i^{\phi}(Y) = \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_i^{\phi}
         - \int_{\Omega} LC^{n+1}v_i^{\phi} + \int_{\Omega} LC_0 v_i^{\phi}
         - \int_{\Gamma} E_{applied}v_i^{\phi}" />
 </div></p><p>The Jacobian matrix <img class="math" src="../images/math/393848847c8dcf7fedfba6dd771828b7e424d6c7.png" alt="DF/DY"/> has <img class="math" src="../images/math/7901356dd65ec4da1b694937cc4ffc663e90d800.png" alt="2\times 2"/> block structure, with blocks
 corresponding to</p>
 <div class="math" id="equation-jacobianelements">
-<p><span class="eqno">(17)</span><img src="../images/math/b0d9603258de955d476f11e11a1384a0f36dac82.png" alt="\frac{\partial F_i^C}{\partial y_j^C}, \ \ \ \frac{\partial F_i^C}{\partial y_j^{\phi}}, \ \ \
+<p><span class="eqno">(18)</span><img src="../images/math/b0d9603258de955d476f11e11a1384a0f36dac82.png" alt="\frac{\partial F_i^C}{\partial y_j^C}, \ \ \ \frac{\partial F_i^C}{\partial y_j^{\phi}}, \ \ \
         \frac{\partial F_i^{\phi}}{\partial y_j^C}, \ \ \ \frac{\partial F_i^{\phi}}{\partial y_j^{\phi}}." />
 </div></p><p>Taking the derivatives of <img class="math" src="../images/math/1f5df7624ff1a351f36d44626a528da7f5c76943.png" alt="F^C_i"/> with respect to <img class="math" src="../images/math/24a7f24bf7b5c5306d253389ead4e6f7627425d3.png" alt="y_j^C"/> and <img class="math" src="../images/math/27e56fc5cb07d389fa3f03b39fc80319e03322c7.png" alt="y_j^{\phi}"/>, we get</p>
 <div class="math" id="equation-bilin1">
-<p><span class="eqno">(18)</span><img src="../images/math/07d890756d54b8e6ff8c6456b98b97c9dc77171e.png" alt="\frac{\partial F_i^C}{\partial y_j^C} =
+<p><span class="eqno">(19)</span><img src="../images/math/705d1b2a3fa4b2c077780916cc3cdbb5be159db8.png" alt="\frac{\partial F_i^C}{\partial y_j^C} =
         \int_{\Omega} \frac{1}{\tau} v_j^C v_i^C + D\int_{\Omega} \nabla v_j^C \cdot \nabla v_i^C
-        + K \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_j^C v_i^C
         + K\int_{\Omega} v_j^C (\nabla \phi^{n+1} \cdot \nabla v_i^C)," />
 </div></p><div class="math" id="equation-bilin2">
-<p><span class="eqno">(19)</span><img src="../images/math/a0320066112feab58c4f84a705a0794140533f6c.png" alt="\frac{\partial F_i^C}{\partial y_j^{\phi}} =
+<p><span class="eqno">(20)</span><img src="../images/math/a0320066112feab58c4f84a705a0794140533f6c.png" alt="\frac{\partial F_i^C}{\partial y_j^{\phi}} =
         K \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla C^{c+1} v_i^C
         + K \int_{\Omega} C^{n+1} (\nabla v_j^{\phi} \cdot \nabla v_i^C)." />
 </div></p><p>Taking the derivatives of <img class="math" src="../images/math/e2979d4916ada2a84084daa472c126bb7c13ccb0.png" alt="F^{\phi}_i"/> with respect to <img class="math" src="../images/math/24a7f24bf7b5c5306d253389ead4e6f7627425d3.png" alt="y_j^C"/> and <img class="math" src="../images/math/27e56fc5cb07d389fa3f03b39fc80319e03322c7.png" alt="y_j^{\phi}"/>, we get</p>
 <div class="math" id="equation-bilin3">
-<p><span class="eqno">(20)</span><img src="../images/math/128095a50b7a761dbb34131594e81d557c955fba.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^C} =
+<p><span class="eqno">(21)</span><img src="../images/math/128095a50b7a761dbb34131594e81d557c955fba.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^C} =
         - \int_{\Omega} L v_j^C v_i^{\phi}," />
 </div></p><div class="math" id="equation-bilin4">
-<p><span class="eqno">(21)</span><img src="../images/math/caaa4140cf0e4e6f362ad0c6206eecf5fc3e2643.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^{\phi}} =
+<p><span class="eqno">(22)</span><img src="../images/math/caaa4140cf0e4e6f362ad0c6206eecf5fc3e2643.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^{\phi}} =
         \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla v_i^{\phi}." />
-</div></p><p>In Hermes, equations <a href="#equation-Fic">(15)</a> and <a href="#equation-Fiphi">(16)</a> are used to define the residuum <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F"/>, and
-equations <a href="#equation-bilin1">(18)</a> - <a href="#equation-bilin4">(21)</a> to define the Jacobian matrix <img class="math" src="../images/math/abb5588023cfa1ac14643e9778699f03eecc57a3.png" alt="J"/>.</p>
+</div></p><p>In Hermes, equations <a href="#equation-Fic">(16)</a> and <a href="#equation-Fiphi">(17)</a> are used to define the residuum <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F"/>, and
+equations <a href="#equation-bilin1">(19)</a> - <a href="#equation-bilin4">(22)</a> to define the Jacobian matrix <img class="math" src="../images/math/abb5588023cfa1ac14643e9778699f03eecc57a3.png" alt="J"/>.</p>
 </div>
 <div class="section" id="simulation">
 <h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
-<p>To begin with simulations in Hermes2D, the equations <a href="#equation-Fic">(15)</a> - <a href="#equation-bilin4">(21)</a> must be implemented.
+<p>To begin with simulations in Hermes2D, the equations <a href="#equation-Fic">(16)</a> - <a href="#equation-bilin4">(22)</a> must be implemented.
 It is done by implementing the callback functions found in  <a class="reference external" href="http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/forms.cpp">newton-np-timedep-adapt-system/forms.cpp</a>.</p>
 <p>The functions along with the boundary conditions:</p>
 <div class="highlight-python"><pre>// Poisson takes Dirichlet and Neumann boundaries
@@ -242,6 +253,21 @@ adaptivity is turned on, then mesh for H1Space <tt class="docutils literal"><spa
 </div>
 <div class="section" id="non-adaptive-solution">
 <h2>Non adaptive solution<a class="headerlink" href="#non-adaptive-solution" title="Permalink to this headline">¶</a></h2>
+<p>The following figure shows the calculated concentration <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> inside the IPMC.</p>
+<div align="center" class="align-center"><img alt="Calculated concentration" class="align-center" src="../images/nonadapt_conc.png" /></div>
+<p>As it can be seen, the concentration is rather uniform in the middle of domain. In fact, most of the
+concentration gradient is near the electrodes, within 1% of the total thickness. That is why the refinement
+of the mesh prior solving is done near the electrode boundaries. Here we see the zoomed in region of
+the boundary where <img class="math" src="../images/math/4b5ac570c96fddbeae171074d1bcf7f03113b585.png" alt="\phi=0"/> for <a href="#equation-poisson">(2)</a> (Dirichlet BC):</p>
+<div align="center" class="align-center"><img alt="Calculated concentration near the electrodes" class="align-center" src="../images/nonadapt_conc2.png" /></div>
+<p>The voltage inside the IPMC forms as follows:</p>
+<div align="center" class="align-center"><img alt="Calculated voltage inside the IPMC" class="align-center" src="../images/nonadapt_phi.png" /></div>
+<p>Here we see that the voltage gradient is much more uniform across the thickness than it is for <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/>.
+That is where <strong>the adaptive multimeshing</strong> can become useful.</p>
+</div>
+<div class="section" id="adaptive-solution">
+<h2>Adaptive solution<a class="headerlink" href="#adaptive-solution" title="Permalink to this headline">¶</a></h2>
+<p>Will come soon.</p>
 </div>
 </div>
 
@@ -258,6 +284,7 @@ adaptivity is turned on, then mesh for H1Space <tt class="docutils literal"><spa
 <li><a class="reference external" href="#jacobian-matrix">Jacobian matrix</a></li>
 <li><a class="reference external" href="#simulation">Simulation</a></li>
 <li><a class="reference external" href="#non-adaptive-solution">Non adaptive solution</a></li>
+<li><a class="reference external" href="#adaptive-solution">Adaptive solution</a></li>
 </ul>
 </li>
 </ul>
@@ -296,7 +323,7 @@ adaptivity is turned on, then mesh for H1Space <tt class="docutils literal"><spa
     </div>
     <div class="footer">
       &copy; Copyright 2010, David Pugal.
-      Last updated on Jan 29, 2010.
+      Last updated on Feb 02, 2010.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
     </div>
   </body>
