@@ -179,7 +179,7 @@ After expanding the Laplace' terms, the equation becomes:
 .. math::
 	:label: poissonweak2
 
-		\int_{\Omega}\nabla\phi\cdot\nabla u-\int_{\Omega}LCv+
+		\int_{\Omega}\nabla\phi\cdot\nabla u-\int_{\Omega}LCu+
 		\int_{\Omega}LC_{0}u +\int_{\Gamma}\frac{\partial \phi}{\partial n}u=0,
 
 where the last term could be written $-\int_{\Gamma}E_{applied}u$.
