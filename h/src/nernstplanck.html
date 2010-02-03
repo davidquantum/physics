@@ -117,42 +117,42 @@ boundary conditions:</p>
 <p><span class="eqno">(7)</span><img src="../images/math/96b3d3e743272d6716d8f76c4466583be8a0c380.png" alt="-D\frac{\partial C}{\partial n}-KC\frac{\partial\phi}{\partial n}=0." />
 </div></p><p>Weak form of equation <a href="#equation-nernstplancksimple">(5)</a> is:</p>
 <div class="math" id="equation-nernstweak1">
-<p><span class="eqno">(8)</span><img src="../images/math/1e0d3a07e24ea10823543bbd88a33ce2ef9aa35f.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v
-        -\int_{\Omega}D\Delta Cv-\int_{\Omega}K\nabla C\cdot
-        \nabla\phi v - \int_{\Omega}KC\Delta \phi v=0," />
-</div></p><p>where <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v"/> is a test function. When applying
+<p><span class="eqno">(8)</span><img src="../images/math/c200fa6b7c60a7c6d9025d3ad2975499582e3319.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v d\mathbf{x}
+        -\int_{\Omega}D\Delta Cv d\mathbf{x}-\int_{\Omega}K\nabla C\cdot
+        \nabla\phi v d\mathbf{x} - \int_{\Omega}KC\Delta \phi v d\mathbf{x}=0," />
+</div></p><p>where <img class="math" src="../images/math/a9f23bf124b6b2b2a993eb313c72e678664ac74a.png" alt="v"/> is a test function  <img class="math" src="../images/math/8224b0321e5f8b52b43df553cfa0ab871ede9534.png" alt="\Omega\subset\mathbf{R}^{3}"/>. When applying
 Green&#8217;s first identity to expand the terms that contain Laplacian
 and adding the boundary condition <a href="#equation-nernstboundarysimple">(7)</a>, the <a href="#equation-nernstweak1">(8)</a>
 becomes:</p>
 <div class="math" id="equation-nernstweak2">
-<p><span class="eqno">(9)</span><img src="../images/math/4ed8e272b8cd45de856f4f61a6a41e039cbcbacd.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v+
-        D\int_{\Omega}\nabla C\cdot\nabla v-
-        K\int_{\Omega}\nabla C \cdot \nabla \phi v+
-        K\int_{\Omega}\nabla\left(Cv\right)\cdot \nabla v-
-        D\int_{\Gamma}\frac{\partial C}{\partial n}v-
-        \int_{\Gamma}K\frac{\partial\phi}{\partial n}Cv=0," />
+<p><span class="eqno">(9)</span><img src="../images/math/e3de9c6df55b15ca0b0e149989d7511835cea81c.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v d\mathbf{x}+
+        D\int_{\Omega}\nabla C\cdot\nabla v d\mathbf{x}-
+        K\int_{\Omega}\nabla C \cdot \nabla \phi v d\mathbf{x}+
+        K\int_{\Omega}\nabla\left(Cv\right)\cdot \nabla v d\mathbf{x}-
+        D\int_{\Gamma}\frac{\partial C}{\partial n}v d\mathbf{S}-
+        \int_{\Gamma}K\frac{\partial\phi}{\partial n}Cv d\mathbf{S}=0," />
 </div></p><p>where the terms 5 and 6 equal <img class="math" src="../images/math/bc1f9d9bf8a1b606a4188b5ce9a2af1809e27a89.png" alt="0"/> due to the boundary condition.
 By expanding the nonlinear 4th term, the weak form becomes:</p>
 <div class="math" id="equation-nernstweak3">
-<p><span class="eqno">(10)</span><img src="../images/math/59d75ed4986d0fae3785e28984f0df6b0406fa2f.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v+
-        D\int_{\Omega}\nabla C \cdot \nabla v-
-        K\int_{\Omega}\nabla C \cdot \nabla \phi v+
-        K\int_{\Omega}\nabla \phi \cdot \nabla C v+
-        K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right)=0" />
+<p><span class="eqno">(10)</span><img src="../images/math/852edb82aa489f6d8507399be464ce8d2390a49f.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v d\mathbf{x}+
+        D\int_{\Omega}\nabla C \cdot \nabla v d\mathbf{x}-
+        K\int_{\Omega}\nabla C \cdot \nabla \phi v d\mathbf{x}+
+        K\int_{\Omega}\nabla \phi \cdot \nabla C v d\mathbf{x}+
+        K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right) d\mathbf{x}=0" />
 </div></p><p>As the terms 3 and 4 are equal and cancel out, the final weak form of equation
 <a href="#equation-nernstplancksimple">(5)</a> is</p>
 <div class="math" id="equation-nernstweak4">
-<p><span class="eqno">(11)</span><img src="../images/math/3e70bd5e77113abb071575b7b16a299c75378b70.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v+
-        D\int_{\Omega}\nabla C \cdot \nabla v+
-        K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right)=0" />
+<p><span class="eqno">(11)</span><img src="../images/math/5b12cfa1f369914c40dc653b5b4322ec9ff7787c.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v d\mathbf{x}+
+        D\int_{\Omega}\nabla C \cdot \nabla v d\mathbf{x}+
+        K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right) d\mathbf{x}=0" />
 </div></p><p>The weak form of equation <a href="#equation-poissonsimple">(6)</a> with test function <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u"/> is:</p>
 <div class="math" id="equation-poissonweak1">
-<p><span class="eqno">(12)</span><img src="../images/math/45910194e7bb7d4476870cc20e542d1a07e75df0.png" alt="-\int_{\Omega}\Delta\phi u-\int_{\Omega}LCu+
-        \int_{\Omega}LC_{0}u+\int_{\Gamma}\frac{\partial \phi}{\partial n}u=0." />
+<p><span class="eqno">(12)</span><img src="../images/math/ea57595ba6b27d4b22437e8587717f3c5f320872.png" alt="-\int_{\Omega}\Delta\phi u d\mathbf{x}-\int_{\Omega}LCu d\mathbf{x}+
+        \int_{\Omega}LC_{0}u d\mathbf{x}+\int_{\Gamma}\frac{\partial \phi}{\partial n}u d\mathbf{S}=0." />
 </div></p><p>After expanding the Laplace&#8217; terms, the equation becomes:</p>
 <div class="math" id="equation-poissonweak2">
-<p><span class="eqno">(13)</span><img src="../images/math/0f31fb0124a7949716e3312d8519d724e1950d50.png" alt="\int_{\Omega}\nabla\phi\cdot\nabla u-\int_{\Omega}LCv+
-        \int_{\Omega}LC_{0}u +\int_{\Gamma}\frac{\partial \phi}{\partial n}u=0," />
+<p><span class="eqno">(13)</span><img src="../images/math/367542bbd51ae299304feb884599e82877db6551.png" alt="\int_{\Omega}\nabla\phi\cdot\nabla u d\mathbf{x}-\int_{\Omega}LCu d\mathbf{x}+
+        \int_{\Omega}LC_{0}u d\mathbf{x} +\int_{\Gamma}\frac{\partial \phi}{\partial n}u d\mathbf{S}=0," />
 </div></p><p>where the last term could be written <img class="math" src="../images/math/929a5f14d4bcb07f6aa4ec9c0b165fa21683e92f.png" alt="-\int_{\Gamma}E_{applied}u"/>.</p>
 </div>
 <div class="section" id="jacobian-matrix">
@@ -165,16 +165,17 @@ method must be chosen. For simplicity we start with first order Euler implicit m
 <div class="math" id="equation-cplus">
 <p><span class="eqno">(15)</span><img src="../images/math/87023de96ba24584f70360797618301ef5d70b90.png" alt="C^{n+1} = \sum_{k=1}^{N^C} y_k^{C} v_k^{C}, \ \ \
           \phi^{n+1} = \sum_{k=1}^{N^{\phi}} y_k^{\phi} v_k^{\phi}." />
-</div></p><p>In the new notation, time-discretized equation <a href="#equation-nernstweak3">(10)</a> becomes:</p>
+</div></p><p>In the new notation, time-discretized equation <a href="#equation-nernstweak4">(11)</a> becomes:</p>
 <div class="math" id="equation-Fic">
-<p><span class="eqno">(16)</span><img src="../images/math/6c9d32fbae4e0f2a24d2a1a32a60befb0182b3cf.png" alt="F_i^C(Y) = \int_{\Omega} \frac{C^{n+1}}{\tau}v_i^C - \int_{\Omega} \frac{C^{n}}{\tau}v_i^C
-        + D\int_{\Omega} \nabla C^{n+1} \cdot \nabla v_i^C
-        + K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C v_i^C)," />
+<p><span class="eqno">(16)</span><img src="../images/math/be566e6fca7cde302b3e897d4be81666ab272ff0.png" alt="F_i^C(Y) = \int_{\Omega} \frac{C^{n+1}}{\tau}v_i^C d\mathbf{x} -
+        \int_{\Omega} \frac{C^{n}}{\tau}v_i^C d\mathbf{x}
+        + D\int_{\Omega} \nabla C^{n+1} \cdot \nabla v_i^C d\mathbf{x}
+        + K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C v_i^C) d\mathbf{x}," />
 </div></p><p>and equation <a href="#equation-poissonweak2">(13)</a> becomes:</p>
 <div class="math" id="equation-Fiphi">
-<p><span class="eqno">(17)</span><img src="../images/math/5354fea6af427b77820123569949fce90bcb87e8.png" alt="F_i^{\phi}(Y) = \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_i^{\phi}
-        - \int_{\Omega} LC^{n+1}v_i^{\phi} + \int_{\Omega} LC_0 v_i^{\phi}
-        - \int_{\Gamma} E_{applied}v_i^{\phi}" />
+<p><span class="eqno">(17)</span><img src="../images/math/db2ebe44938f7b6d6ac9c62615e6fcaa0f98af4e.png" alt="F_i^{\phi}(Y) = \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_i^{\phi} d\mathbf{x}
+        - \int_{\Omega} LC^{n+1}v_i^{\phi} d\mathbf{x} + \int_{\Omega} LC_0 v_i^{\phi} d\mathbf{x}
+        - \int_{\Gamma} E_{applied}v_i^{\phi} d\mathbf{x}." />
 </div></p><p>The Jacobian matrix <img class="math" src="../images/math/393848847c8dcf7fedfba6dd771828b7e424d6c7.png" alt="DF/DY"/> has <img class="math" src="../images/math/7901356dd65ec4da1b694937cc4ffc663e90d800.png" alt="2\times 2"/> block structure, with blocks
 corresponding to</p>
 <div class="math" id="equation-jacobianelements">
@@ -182,20 +183,21 @@ corresponding to</p>
         \frac{\partial F_i^{\phi}}{\partial y_j^C}, \ \ \ \frac{\partial F_i^{\phi}}{\partial y_j^{\phi}}." />
 </div></p><p>Taking the derivatives of <img class="math" src="../images/math/1f5df7624ff1a351f36d44626a528da7f5c76943.png" alt="F^C_i"/> with respect to <img class="math" src="../images/math/24a7f24bf7b5c5306d253389ead4e6f7627425d3.png" alt="y_j^C"/> and <img class="math" src="../images/math/27e56fc5cb07d389fa3f03b39fc80319e03322c7.png" alt="y_j^{\phi}"/>, we get</p>
 <div class="math" id="equation-bilin1">
-<p><span class="eqno">(19)</span><img src="../images/math/705d1b2a3fa4b2c077780916cc3cdbb5be159db8.png" alt="\frac{\partial F_i^C}{\partial y_j^C} =
-        \int_{\Omega} \frac{1}{\tau} v_j^C v_i^C + D\int_{\Omega} \nabla v_j^C \cdot \nabla v_i^C
-        + K\int_{\Omega} v_j^C (\nabla \phi^{n+1} \cdot \nabla v_i^C)," />
+<p><span class="eqno">(19)</span><img src="../images/math/3f10b99e4839d1d1c945f5e11b681e8ecab9d6f1.png" alt="\frac{\partial F_i^C}{\partial y_j^C} =
+        \int_{\Omega} \frac{1}{\tau} v_j^C v_i^C d\mathbf{x} +
+        D\int_{\Omega} \nabla v_j^C \cdot \nabla v_i^C d\mathbf{x}
+        + K\int_{\Omega} v_j^C (\nabla \phi^{n+1} \cdot \nabla v_i^C) d\mathbf{x}," />
 </div></p><div class="math" id="equation-bilin2">
-<p><span class="eqno">(20)</span><img src="../images/math/a0320066112feab58c4f84a705a0794140533f6c.png" alt="\frac{\partial F_i^C}{\partial y_j^{\phi}} =
-        K \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla C^{c+1} v_i^C
-        + K \int_{\Omega} C^{n+1} (\nabla v_j^{\phi} \cdot \nabla v_i^C)." />
+<p><span class="eqno">(20)</span><img src="../images/math/71af50987ee42bc92334cb9652fe0b0799b6280c.png" alt="\frac{\partial F_i^C}{\partial y_j^{\phi}} =
+        K \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla C^{c+1} v_i^C d\mathbf{x}
+        + K \int_{\Omega} C^{n+1} (\nabla v_j^{\phi} \cdot \nabla v_i^C) d\mathbf{x}." />
 </div></p><p>Taking the derivatives of <img class="math" src="../images/math/e2979d4916ada2a84084daa472c126bb7c13ccb0.png" alt="F^{\phi}_i"/> with respect to <img class="math" src="../images/math/24a7f24bf7b5c5306d253389ead4e6f7627425d3.png" alt="y_j^C"/> and <img class="math" src="../images/math/27e56fc5cb07d389fa3f03b39fc80319e03322c7.png" alt="y_j^{\phi}"/>, we get</p>
 <div class="math" id="equation-bilin3">
-<p><span class="eqno">(21)</span><img src="../images/math/128095a50b7a761dbb34131594e81d557c955fba.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^C} =
-        - \int_{\Omega} L v_j^C v_i^{\phi}," />
+<p><span class="eqno">(21)</span><img src="../images/math/772b54ab20ff40446e4d84e207826d8113724dd5.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^C} =
+        - \int_{\Omega} L v_j^C v_i^{\phi} d\mathbf{x}," />
 </div></p><div class="math" id="equation-bilin4">
-<p><span class="eqno">(22)</span><img src="../images/math/caaa4140cf0e4e6f362ad0c6206eecf5fc3e2643.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^{\phi}} =
-        \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla v_i^{\phi}." />
+<p><span class="eqno">(22)</span><img src="../images/math/110f7739628d023ff6d151a74a0ef08d8a5e7698.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^{\phi}} =
+        \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla v_i^{\phi} d\mathbf{x}." />
 </div></p><p>In Hermes, equations <a href="#equation-Fic">(16)</a> and <a href="#equation-Fiphi">(17)</a> are used to define the residuum <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F"/>, and
 equations <a href="#equation-bilin1">(19)</a> - <a href="#equation-bilin4">(22)</a> to define the Jacobian matrix <img class="math" src="../images/math/abb5588023cfa1ac14643e9778699f03eecc57a3.png" alt="J"/>.</p>
 </div>

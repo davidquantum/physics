@@ -125,11 +125,11 @@ Weak form of equation :eq:`nernstplancksimple` is:
 .. math::
 	:label: nernstweak1
 
-		\int_{\Omega}\frac{\partial C}{\partial t}v
-		-\int_{\Omega}D\Delta Cv-\int_{\Omega}K\nabla C\cdot
-		\nabla\phi v - \int_{\Omega}KC\Delta \phi v=0,
+		\int_{\Omega}\frac{\partial C}{\partial t}v d\mathbf{x}
+		-\int_{\Omega}D\Delta Cv d\mathbf{x}-\int_{\Omega}K\nabla C\cdot
+		\nabla\phi v d\mathbf{x} - \int_{\Omega}KC\Delta \phi v d\mathbf{x}=0,
 
-where $v$ is a test function. When applying
+where $v$ is a test function  $\Omega\subset\mathbf{R}^{3}$. When applying
 Green's first identity to expand the terms that contain Laplacian
 and adding the boundary condition :eq:`nernstboundarysimple`, the :eq:`nernstweak1`
 becomes:
@@ -137,12 +137,12 @@ becomes:
 .. math::
 	:label: nernstweak2
 
-		\int_{\Omega}\frac{\partial C}{\partial t}v+
-		D\int_{\Omega}\nabla C\cdot\nabla v-
-		K\int_{\Omega}\nabla C \cdot \nabla \phi v+
-		K\int_{\Omega}\nabla\left(Cv\right)\cdot \nabla v-
-		D\int_{\Gamma}\frac{\partial C}{\partial n}v-
-		\int_{\Gamma}K\frac{\partial\phi}{\partial n}Cv=0,
+		\int_{\Omega}\frac{\partial C}{\partial t}v d\mathbf{x}+
+		D\int_{\Omega}\nabla C\cdot\nabla v d\mathbf{x}-
+		K\int_{\Omega}\nabla C \cdot \nabla \phi v d\mathbf{x}+
+		K\int_{\Omega}\nabla\left(Cv\right)\cdot \nabla v d\mathbf{x}-
+		D\int_{\Gamma}\frac{\partial C}{\partial n}v d\mathbf{S}-
+		\int_{\Gamma}K\frac{\partial\phi}{\partial n}Cv d\mathbf{S}=0,
 
 where the terms 5 and 6 equal $0$ due to the boundary condition. 
 By expanding the nonlinear 4th term, the weak form becomes:
@@ -150,11 +150,11 @@ By expanding the nonlinear 4th term, the weak form becomes:
 .. math::
 	:label: nernstweak3
 
-		\int_{\Omega}\frac{\partial C}{\partial t}v+
-		D\int_{\Omega}\nabla C \cdot \nabla v-
-		K\int_{\Omega}\nabla C \cdot \nabla \phi v+
-		K\int_{\Omega}\nabla \phi \cdot \nabla C v+
-		K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right)=0
+		\int_{\Omega}\frac{\partial C}{\partial t}v d\mathbf{x}+
+		D\int_{\Omega}\nabla C \cdot \nabla v d\mathbf{x}-
+		K\int_{\Omega}\nabla C \cdot \nabla \phi v d\mathbf{x}+
+		K\int_{\Omega}\nabla \phi \cdot \nabla C v d\mathbf{x}+
+		K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right) d\mathbf{x}=0
 
 As the terms 3 and 4 are equal and cancel out, the final weak form of equation
 :eq:`nernstplancksimple` is
@@ -162,25 +162,25 @@ As the terms 3 and 4 are equal and cancel out, the final weak form of equation
 .. math::
 	:label: nernstweak4
 
-		\int_{\Omega}\frac{\partial C}{\partial t}v+
-		D\int_{\Omega}\nabla C \cdot \nabla v+
-		K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right)=0
+		\int_{\Omega}\frac{\partial C}{\partial t}v d\mathbf{x}+
+		D\int_{\Omega}\nabla C \cdot \nabla v d\mathbf{x}+
+		K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right) d\mathbf{x}=0
 		
 The weak form of equation :eq:`poissonsimple` with test function $u$ is:
 
 .. math::
 	:label: poissonweak1
 
-		-\int_{\Omega}\Delta\phi u-\int_{\Omega}LCu+
-		\int_{\Omega}LC_{0}u+\int_{\Gamma}\frac{\partial \phi}{\partial n}u=0.
+		-\int_{\Omega}\Delta\phi u d\mathbf{x}-\int_{\Omega}LCu d\mathbf{x}+
+		\int_{\Omega}LC_{0}u d\mathbf{x}+\int_{\Gamma}\frac{\partial \phi}{\partial n}u d\mathbf{S}=0.
 
 After expanding the Laplace' terms, the equation becomes:
 
 .. math::
 	:label: poissonweak2
 
-		\int_{\Omega}\nabla\phi\cdot\nabla u-\int_{\Omega}LCv+
-		\int_{\Omega}LC_{0}u +\int_{\Gamma}\frac{\partial \phi}{\partial n}u=0,
+		\int_{\Omega}\nabla\phi\cdot\nabla u d\mathbf{x}-\int_{\Omega}LCu d\mathbf{x}+
+		\int_{\Omega}LC_{0}u d\mathbf{x} +\int_{\Gamma}\frac{\partial \phi}{\partial n}u d\mathbf{S}=0,
 
 where the last term could be written $-\int_{\Gamma}E_{applied}u$.
 
@@ -203,23 +203,24 @@ where $\tau$ is the time step. We will use the following notation:
 		C^{n+1} = \sum_{k=1}^{N^C} y_k^{C} v_k^{C}, \ \ \ 
 		  \phi^{n+1} = \sum_{k=1}^{N^{\phi}} y_k^{\phi} v_k^{\phi}.
 
-In the new notation, time-discretized equation :eq:`nernstweak3` becomes:
+In the new notation, time-discretized equation :eq:`nernstweak4` becomes:
 
 .. math::
 	:label: Fic
 
-		F_i^C(Y) = \int_{\Omega} \frac{C^{n+1}}{\tau}v_i^C - \int_{\Omega} \frac{C^{n}}{\tau}v_i^C
-		+ D\int_{\Omega} \nabla C^{n+1} \cdot \nabla v_i^C  
-		+ K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C v_i^C),
+		F_i^C(Y) = \int_{\Omega} \frac{C^{n+1}}{\tau}v_i^C d\mathbf{x} - 
+		\int_{\Omega} \frac{C^{n}}{\tau}v_i^C d\mathbf{x}
+		+ D\int_{\Omega} \nabla C^{n+1} \cdot \nabla v_i^C d\mathbf{x}  
+		+ K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C v_i^C) d\mathbf{x},
 
 and equation :eq:`poissonweak2` becomes:
 
 .. math::
 	:label: Fiphi
 
-		F_i^{\phi}(Y) = \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_i^{\phi} 
-		- \int_{\Omega} LC^{n+1}v_i^{\phi} + \int_{\Omega} LC_0 v_i^{\phi}
-		- \int_{\Gamma} E_{applied}v_i^{\phi}
+		F_i^{\phi}(Y) = \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_i^{\phi} d\mathbf{x} 
+		- \int_{\Omega} LC^{n+1}v_i^{\phi} d\mathbf{x} + \int_{\Omega} LC_0 v_i^{\phi} d\mathbf{x}
+		- \int_{\Gamma} E_{applied}v_i^{\phi} d\mathbf{x}.
 
 The Jacobian matrix $DF/DY$ has $2\times 2$ block structure, with blocks 
 corresponding to
@@ -236,15 +237,16 @@ Taking the derivatives of $F^C_i$ with respect to $y_j^C$ and $y_j^{\phi}$, we g
 	:label: bilin1
 
 		\frac{\partial F_i^C}{\partial y_j^C} = 
-		\int_{\Omega} \frac{1}{\tau} v_j^C v_i^C + D\int_{\Omega} \nabla v_j^C \cdot \nabla v_i^C
-		+ K\int_{\Omega} v_j^C (\nabla \phi^{n+1} \cdot \nabla v_i^C),
+		\int_{\Omega} \frac{1}{\tau} v_j^C v_i^C d\mathbf{x} + 
+		D\int_{\Omega} \nabla v_j^C \cdot \nabla v_i^C d\mathbf{x}
+		+ K\int_{\Omega} v_j^C (\nabla \phi^{n+1} \cdot \nabla v_i^C) d\mathbf{x},
 	
 .. math::
 	:label: bilin2
 		
 		\frac{\partial F_i^C}{\partial y_j^{\phi}} =
-		K \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla C^{c+1} v_i^C 
-		+ K \int_{\Omega} C^{n+1} (\nabla v_j^{\phi} \cdot \nabla v_i^C).
+		K \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla C^{c+1} v_i^C d\mathbf{x} 
+		+ K \int_{\Omega} C^{n+1} (\nabla v_j^{\phi} \cdot \nabla v_i^C) d\mathbf{x}.
 
 Taking the derivatives of $F^{\phi}_i$ with respect to $y_j^C$ and $y_j^{\phi}$, we get
 
@@ -252,13 +254,13 @@ Taking the derivatives of $F^{\phi}_i$ with respect to $y_j^C$ and $y_j^{\phi}$,
 	:label: bilin3
 		
 		\frac{\partial F_i^{\phi}}{\partial y_j^C} =
-		- \int_{\Omega} L v_j^C v_i^{\phi},
+		- \int_{\Omega} L v_j^C v_i^{\phi} d\mathbf{x},
 
 .. math::
 	:label: bilin4
 		
 		\frac{\partial F_i^{\phi}}{\partial y_j^{\phi}} =
-		\int_{\Omega} \nabla v_j^{\phi} \cdot \nabla v_i^{\phi}.
+		\int_{\Omega} \nabla v_j^{\phi} \cdot \nabla v_i^{\phi} d\mathbf{x}.
 
 In Hermes, equations :eq:`Fic` and :eq:`Fiphi` are used to define the residuum $F$, and
 equations :eq:`bilin1` - :eq:`bilin4` to define the Jacobian matrix $J$.
