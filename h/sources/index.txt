@@ -1,4 +1,4 @@
-.. Hermes2D documentation master file, created by
+.. Physics documentation master file, created by
    sphinx-quickstart on Fri Oct 30 19:23:04 2009.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
@@ -10,8 +10,7 @@ Physics Documentation
     :maxdepth: 2
 
     src/introduction
-    src/tutorial
-    src/benchmarks
+    src/math
     src/nernstplanck
 
 .. #####
