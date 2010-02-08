@@ -271,7 +271,10 @@ Simulation
 To begin with simulations in Hermes2D, the equations :eq:`Fic` - :eq:`bilin4` must be implemented.
 It is done by implementing the callback functions found in  `newton-np-timedep-adapt-system/forms.cpp <http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/forms.cpp>`_.
 
+.. highlight:: c
+
 The functions along with the boundary conditions::
+
 
 	// Poisson takes Dirichlet and Neumann boundaries
 	int phi_bc_types(int marker) {
@@ -294,6 +297,7 @@ The functions along with the boundary conditions::
 		return -E_FIELD * int_v<Real, Scalar>(n, wt, v);
 	}
 
+
 are assembled as follows::
 
 	WeakForm wf(2);
@@ -313,7 +317,10 @@ iteration respectively.
 When it comes to meshing, it should be considered that the gradient of $C$ near the boundaries will
 be higher than gradients of $\phi$. This allows us to create different meshes for those variables. In
 `main.cpp <http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/main.cpp>`_.
-the following code in the *main()* function is for having multimeshing::
+the following code in the *main()* function is for having multimeshing
+
+
+.. code-block:: c
 	
 	H1Space C(&Cmesh, &shapeset);
 	H1Space phi(MULTIMESH ? &phimesh : &Cmesh, &shapeset);

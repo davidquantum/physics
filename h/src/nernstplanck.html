@@ -20,7 +20,7 @@
     <script type="text/javascript" src="../static/jquery.js"></script>
     <script type="text/javascript" src="../static/doctools.js"></script>
     <link rel="top" title="Physics" href="../index.html" />
-    <link rel="prev" title="Introduction" href="introduction.html" /> 
+    <link rel="prev" title="Functional Analysis" href="functionalanalysis.html" /> 
   </head>
   <body>
     <div class="related">
@@ -30,7 +30,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="introduction.html" title="Introduction"
+          <a href="functionalanalysis.html" title="Functional Analysis"
              accesskey="P">previous</a> |</li>
         <li><a href="../index.html">Content</a> &raquo;</li> 
       </ul>
@@ -206,37 +206,39 @@ equations <a href="#equation-bilin1">(19)</a> - <a href="#equation-bilin4">(22)<
 <p>To begin with simulations in Hermes2D, the equations <a href="#equation-Fic">(16)</a> - <a href="#equation-bilin4">(22)</a> must be implemented.
 It is done by implementing the callback functions found in  <a class="reference external" href="http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/forms.cpp">newton-np-timedep-adapt-system/forms.cpp</a>.</p>
 <p>The functions along with the boundary conditions:</p>
-<div class="highlight-python"><pre>// Poisson takes Dirichlet and Neumann boundaries
-int phi_bc_types(int marker) {
-        return (marker == SIDE_MARKER || marker == TOP_MARKER)
-                ? BC_NATURAL : BC_ESSENTIAL;
-}
+<div class="highlight-c"><div class="highlight"><pre><span class="c">// Poisson takes Dirichlet and Neumann boundaries</span>
+<span class="kt">int</span> <span class="nf">phi_bc_types</span><span class="p">(</span><span class="kt">int</span> <span class="n">marker</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">marker</span> <span class="o">==</span> <span class="n">SIDE_MARKER</span> <span class="o">||</span> <span class="n">marker</span> <span class="o">==</span> <span class="n">TOP_MARKER</span><span class="p">)</span>
+                <span class="o">?</span> <span class="n">BC_NATURAL</span> <span class="o">:</span> <span class="n">BC_ESSENTIAL</span><span class="p">;</span>
+<span class="p">}</span>
 
-//Nernst-Planck takes Neumann boundaries
-int C_bc_types(int marker) {
-        return BC_NATURAL;
-}
+<span class="c">//Nernst-Planck takes Neumann boundaries</span>
+<span class="kt">int</span> <span class="nf">C_bc_types</span><span class="p">(</span><span class="kt">int</span> <span class="n">marker</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">BC_NATURAL</span><span class="p">;</span>
+<span class="p">}</span>
 
-//Dirichlet boundary conditions for Poisson equation
-scalar phi_bc_values(int marker, double x, double y) {
-        return 0.0;
-}
+<span class="c">//Dirichlet boundary conditions for Poisson equation</span>
+<span class="n">scalar</span> <span class="nf">phi_bc_values</span><span class="p">(</span><span class="kt">int</span> <span class="n">marker</span><span class="p">,</span> <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span>
+<span class="p">}</span>
 
-//Neumann boundary of Poisson equation as linear sufrace integral
-Scalar linear_form_surf_top(int n, double *wt, Func&lt;Real&gt; *v, Geom&lt;Real&gt; *e, ExtData&lt;Scalar&gt; *ext) {
-        return -E_FIELD * int_v&lt;Real, Scalar&gt;(n, wt, v);
-}</pre>
+<span class="c">//Neumann boundary of Poisson equation as linear sufrace integral</span>
+<span class="n">Scalar</span> <span class="nf">linear_form_surf_top</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">wt</span><span class="p">,</span> <span class="n">Func</span><span class="o">&lt;</span><span class="n">Real</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">v</span><span class="p">,</span> <span class="n">Geom</span><span class="o">&lt;</span><span class="n">Real</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">e</span><span class="p">,</span> <span class="n">ExtData</span><span class="o">&lt;</span><span class="n">Scalar</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ext</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="n">E_FIELD</span> <span class="o">*</span> <span class="n">int_v</span><span class="o">&lt;</span><span class="n">Real</span><span class="p">,</span> <span class="n">Scalar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">wt</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
 </div>
 <p>are assembled as follows:</p>
-<div class="highlight-python"><pre>WeakForm wf(2);
-Solution Cp, Ci, phip, phii;
-wf.add_biform(0, 0, callback(J_euler_DFcDYc), UNSYM, ANY, 1, &amp;phii);
-wf.add_biform(1, 1, callback(J_euler_DFphiDYphi), UNSYM);
-wf.add_biform(0, 1, callback(J_euler_DFcDYphi), UNSYM, ANY, 1, &amp;Ci);
-wf.add_biform(1, 0, callback(J_euler_DFphiDYc), UNSYM);
-wf.add_liform(0, callback(Fc_euler), ANY, 3, &amp;Cp, &amp;Ci, &amp;phii);
-wf.add_liform(1, callback(Fphi_euler), ANY, 2, &amp;Ci, &amp;phii);
-wf.add_liform_surf(1, callback(linear_form_surf_top), TOP_MARKER);</pre>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">WeakForm</span> <span class="n">wf</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">Solution</span> <span class="n">Cp</span><span class="p">,</span> <span class="n">Ci</span><span class="p">,</span> <span class="n">phip</span><span class="p">,</span> <span class="n">phii</span><span class="p">;</span>
+<span class="n">wf</span><span class="p">.</span><span class="n">add_biform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">J_euler_DFcDYc</span><span class="p">),</span> <span class="n">UNSYM</span><span class="p">,</span> <span class="n">ANY</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">phii</span><span class="p">);</span>
+<span class="n">wf</span><span class="p">.</span><span class="n">add_biform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">J_euler_DFphiDYphi</span><span class="p">),</span> <span class="n">UNSYM</span><span class="p">);</span>
+<span class="n">wf</span><span class="p">.</span><span class="n">add_biform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">J_euler_DFcDYphi</span><span class="p">),</span> <span class="n">UNSYM</span><span class="p">,</span> <span class="n">ANY</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Ci</span><span class="p">);</span>
+<span class="n">wf</span><span class="p">.</span><span class="n">add_biform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">J_euler_DFphiDYc</span><span class="p">),</span> <span class="n">UNSYM</span><span class="p">);</span>
+<span class="n">wf</span><span class="p">.</span><span class="n">add_liform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">Fc_euler</span><span class="p">),</span> <span class="n">ANY</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Cp</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Ci</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">phii</span><span class="p">);</span>
+<span class="n">wf</span><span class="p">.</span><span class="n">add_liform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">Fphi_euler</span><span class="p">),</span> <span class="n">ANY</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Ci</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">phii</span><span class="p">);</span>
+<span class="n">wf</span><span class="p">.</span><span class="n">add_liform_surf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">linear_form_surf_top</span><span class="p">),</span> <span class="n">TOP_MARKER</span><span class="p">);</span>
+</pre></div>
 </div>
 <p>where the variables <tt class="docutils literal"><span class="pre">Cp</span></tt>, <tt class="docutils literal"><span class="pre">Ci</span></tt>, <tt class="docutils literal"><span class="pre">phip</span></tt>, and <tt class="docutils literal"><span class="pre">phii</span></tt> are solutions concentration
 <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> and voltage <img class="math" src="../images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/>. The suffixes <em>i</em> and <em>p</em> are current iteration and previous
@@ -244,9 +246,10 @@ iteration respectively.</p>
 <p>When it comes to meshing, it should be considered that the gradient of <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> near the boundaries will
 be higher than gradients of <img class="math" src="../images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/>. This allows us to create different meshes for those variables. In
 <a class="reference external" href="http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/main.cpp">main.cpp</a>.
-the following code in the <em>main()</em> function is for having multimeshing:</p>
-<div class="highlight-python"><pre>H1Space C(&amp;Cmesh, &amp;shapeset);
-H1Space phi(MULTIMESH ? &amp;phimesh : &amp;Cmesh, &amp;shapeset);</pre>
+the following code in the <em>main()</em> function is for having multimeshing</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">H1Space</span> <span class="n">C</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Cmesh</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">shapeset</span><span class="p">);</span>
+<span class="n">H1Space</span> <span class="n">phi</span><span class="p">(</span><span class="n">MULTIMESH</span> <span class="o">?</span> <span class="o">&amp;</span><span class="n">phimesh</span> <span class="o">:</span> <span class="o">&amp;</span><span class="n">Cmesh</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">shapeset</span><span class="p">);</span>
+</pre></div>
 </div>
 <p>When <tt class="docutils literal"><span class="pre">MULTIMESH</span></tt> is defined in <a class="reference external" href="http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/header.h">header.h</a>.
 then different H1Spaces for <tt class="docutils literal"><span class="pre">phi</span></tt> and <tt class="docutils literal"><span class="pre">C</span></tt> are created. It must be noted that when adaptivity
@@ -292,8 +295,8 @@ That is where <strong>the adaptive multimeshing</strong> can become useful.</p>
 </ul>
 
             <h4>Previous topic</h4>
-            <p class="topless"><a href="introduction.html"
-                                  title="previous chapter">Introduction</a></p>
+            <p class="topless"><a href="functionalanalysis.html"
+                                  title="previous chapter">Functional Analysis</a></p>
           <div id="searchbox" style="display: none">
             <h3>Quick search</h3>
               <form class="search" action="../search.html" method="get">
@@ -318,14 +321,14 @@ That is where <strong>the adaptive multimeshing</strong> can become useful.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="introduction.html" title="Introduction"
+          <a href="functionalanalysis.html" title="Functional Analysis"
              >previous</a> |</li>
         <li><a href="../index.html">Content</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
       &copy; Copyright 2010, David Pugal.
-      Last updated on Feb 02, 2010.
+      Last updated on Feb 04, 2010.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
     </div>
   </body>
