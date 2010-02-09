@@ -1,5 +1,5 @@
 Poisson Nernst-Planck Equation
-==============================
+------------------------------
 
 This section describes how to make a weak form presentation
 of Poisson and Nernst-Planck equation system. The Nernst-Planck
@@ -94,7 +94,7 @@ For Poisson equation:
  #. (insulation): Neumann boundary $\frac{\partial \phi}{\partial n} = 0$.
 
 Weak Form of the Equations
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To implement the :eq:`nernstplanck` and :eq:`poisson` in Hermes2D, the weak form must be derived. First of all let's denote:
 
@@ -185,7 +185,7 @@ After expanding the Laplace' terms, the equation becomes:
 where the last term could be written $-\int_{\Gamma}E_{applied}u$.
 
 Jacobian matrix
----------------
+^^^^^^^^^^^^^^^
 
 Equation :eq:`nernstweak3` is time dependent, thus some time stepping 
 method must be chosen. For simplicity we start with first order Euler implicit method
@@ -266,7 +266,7 @@ In Hermes, equations :eq:`Fic` and :eq:`Fiphi` are used to define the residuum $
 equations :eq:`bilin1` - :eq:`bilin4` to define the Jacobian matrix $J$.
 
 Simulation
-----------
+^^^^^^^^^^
 
 To begin with simulations in Hermes2D, the equations :eq:`Fic` - :eq:`bilin4` must be implemented.
 It is done by implementing the callback functions found in  `newton-np-timedep-adapt-system/forms.cpp <http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/forms.cpp>`_.
@@ -331,7 +331,7 @@ is not used, the multimeshing in this example does not have any advantage, howev
 adaptivity is turned on, then mesh for H1Space ``C`` is refined much more than for ``phi``.
 
 Non adaptive solution
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 The following figure shows the calculated concentration $C$ inside the IPMC.
 
@@ -359,6 +359,6 @@ Here we see that the voltage gradient is much more uniform across the thickness 
 That is where **the adaptive multimeshing** can become useful.
 
 Adaptive solution
------------------
+^^^^^^^^^^^^^^^^^
 
 Will come soon.
