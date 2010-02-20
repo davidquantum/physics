@@ -125,10 +125,10 @@ Green&#8217;s first identity to expand the terms that contain Laplacian
 and adding the boundary condition <a href="#equation-nernstboundarysimple">(7)</a>, the <a href="#equation-nernstweak1">(8)</a>
 becomes:</p>
 <div class="math" id="equation-nernstweak2">
-<p><span class="eqno">(9)</span><img src="../images/math/e3de9c6df55b15ca0b0e149989d7511835cea81c.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v d\mathbf{x}+
+<p><span class="eqno">(9)</span><img src="../images/math/fc06f7e8798d029bb326edcc6a23784851d44447.png" alt="\int_{\Omega}\frac{\partial C}{\partial t}v d\mathbf{x}+
         D\int_{\Omega}\nabla C\cdot\nabla v d\mathbf{x}-
         K\int_{\Omega}\nabla C \cdot \nabla \phi v d\mathbf{x}+
-        K\int_{\Omega}\nabla\left(Cv\right)\cdot \nabla v d\mathbf{x}-
+        K\int_{\Omega}\nabla\left(Cv\right)\cdot \nabla \phi d\mathbf{x}-
         D\int_{\Gamma}\frac{\partial C}{\partial n}v d\mathbf{S}-
         \int_{\Gamma}K\frac{\partial\phi}{\partial n}Cv d\mathbf{S}=0," />
 </div></p><p>where the terms 5 and 6 equal <img class="math" src="../images/math/bc1f9d9bf8a1b606a4188b5ce9a2af1809e27a89.png" alt="0"/> due to the boundary condition.
@@ -167,10 +167,10 @@ method must be chosen. For simplicity we start with first order Euler implicit m
           \phi^{n+1} = \sum_{k=1}^{N^{\phi}} y_k^{\phi} v_k^{\phi}." />
 </div></p><p>In the new notation, time-discretized equation <a href="#equation-nernstweak4">(11)</a> becomes:</p>
 <div class="math" id="equation-Fic">
-<p><span class="eqno">(16)</span><img src="../images/math/be566e6fca7cde302b3e897d4be81666ab272ff0.png" alt="F_i^C(Y) = \int_{\Omega} \frac{C^{n+1}}{\tau}v_i^C d\mathbf{x} -
+<p><span class="eqno">(16)</span><img src="../images/math/6f2c4eca8aaeb6720591b160409c8966e87e1f33.png" alt="F_i^C(Y) = \int_{\Omega} \frac{C^{n+1}}{\tau}v_i^C d\mathbf{x} -
         \int_{\Omega} \frac{C^{n}}{\tau}v_i^C d\mathbf{x}
         + D\int_{\Omega} \nabla C^{n+1} \cdot \nabla v_i^C d\mathbf{x}
-        + K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C v_i^C) d\mathbf{x}," />
+        + K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C) d\mathbf{x}," />
 </div></p><p>and equation <a href="#equation-poissonweak2">(13)</a> becomes:</p>
 <div class="math" id="equation-Fiphi">
 <p><span class="eqno">(17)</span><img src="../images/math/db2ebe44938f7b6d6ac9c62615e6fcaa0f98af4e.png" alt="F_i^{\phi}(Y) = \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_i^{\phi} d\mathbf{x}
@@ -188,9 +188,8 @@ corresponding to</p>
         D\int_{\Omega} \nabla v_j^C \cdot \nabla v_i^C d\mathbf{x}
         + K\int_{\Omega} v_j^C (\nabla \phi^{n+1} \cdot \nabla v_i^C) d\mathbf{x}," />
 </div></p><div class="math" id="equation-bilin2">
-<p><span class="eqno">(20)</span><img src="../images/math/71af50987ee42bc92334cb9652fe0b0799b6280c.png" alt="\frac{\partial F_i^C}{\partial y_j^{\phi}} =
-        K \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla C^{c+1} v_i^C d\mathbf{x}
-        + K \int_{\Omega} C^{n+1} (\nabla v_j^{\phi} \cdot \nabla v_i^C) d\mathbf{x}." />
+<p><span class="eqno">(20)</span><img src="../images/math/909b26024076879e89c4928b5d6a50935c6fa700.png" alt="\frac{\partial F_i^C}{\partial y_j^{\phi}} =
+        K \int_{\Omega} C^{n+1} (\nabla v_j^{\phi} \cdot \nabla v_i^C) d\mathbf{x}." />
 </div></p><p>Taking the derivatives of <img class="math" src="../images/math/e2979d4916ada2a84084daa472c126bb7c13ccb0.png" alt="F^{\phi}_i"/> with respect to <img class="math" src="../images/math/24a7f24bf7b5c5306d253389ead4e6f7627425d3.png" alt="y_j^C"/> and <img class="math" src="../images/math/27e56fc5cb07d389fa3f03b39fc80319e03322c7.png" alt="y_j^{\phi}"/>, we get</p>
 <div class="math" id="equation-bilin3">
 <p><span class="eqno">(21)</span><img src="../images/math/772b54ab20ff40446e4d84e207826d8113724dd5.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^C} =
@@ -328,7 +327,7 @@ That is where <strong>the adaptive multimeshing</strong> can become useful.</p>
     </div>
     <div class="footer">
       &copy; Copyright 2010, David Pugal.
-      Last updated on Feb 04, 2010.
+      Last updated on Feb 20, 2010.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
     </div>
   </body>

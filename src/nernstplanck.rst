@@ -140,7 +140,7 @@ becomes:
 		\int_{\Omega}\frac{\partial C}{\partial t}v d\mathbf{x}+
 		D\int_{\Omega}\nabla C\cdot\nabla v d\mathbf{x}-
 		K\int_{\Omega}\nabla C \cdot \nabla \phi v d\mathbf{x}+
-		K\int_{\Omega}\nabla\left(Cv\right)\cdot \nabla v d\mathbf{x}-
+		K\int_{\Omega}\nabla\left(Cv\right)\cdot \nabla \phi d\mathbf{x}-
 		D\int_{\Gamma}\frac{\partial C}{\partial n}v d\mathbf{S}-
 		\int_{\Gamma}K\frac{\partial\phi}{\partial n}Cv d\mathbf{S}=0,
 
@@ -211,7 +211,7 @@ In the new notation, time-discretized equation :eq:`nernstweak4` becomes:
 		F_i^C(Y) = \int_{\Omega} \frac{C^{n+1}}{\tau}v_i^C d\mathbf{x} - 
 		\int_{\Omega} \frac{C^{n}}{\tau}v_i^C d\mathbf{x}
 		+ D\int_{\Omega} \nabla C^{n+1} \cdot \nabla v_i^C d\mathbf{x}  
-		+ K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C v_i^C) d\mathbf{x},
+		+ K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C) d\mathbf{x},
 
 and equation :eq:`poissonweak2` becomes:
 
@@ -245,8 +245,7 @@ Taking the derivatives of $F^C_i$ with respect to $y_j^C$ and $y_j^{\phi}$, we g
 	:label: bilin2
 		
 		\frac{\partial F_i^C}{\partial y_j^{\phi}} =
-		K \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla C^{c+1} v_i^C d\mathbf{x} 
-		+ K \int_{\Omega} C^{n+1} (\nabla v_j^{\phi} \cdot \nabla v_i^C) d\mathbf{x}.
+		K \int_{\Omega} C^{n+1} (\nabla v_j^{\phi} \cdot \nabla v_i^C) d\mathbf{x}.
 
 Taking the derivatives of $F^{\phi}_i$ with respect to $y_j^C$ and $y_j^{\phi}$, we get
 
