@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Physics documentation build configuration file, created by
+# Physics build configuration file, created by
 # sphinx-quickstart on Wed Jan 27 15:42:42 2010.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -337,7 +337,7 @@ htmlhelp_basename = 'Physicsdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'Physics.tex', u'Physics Documentation',
+  ('index', 'Physics.tex', u'Physics',
    u'David Pugal', 'manual'),
 ]
 
