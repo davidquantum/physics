@@ -3,11 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Physics Documentation
-======================
+Physics 
+=======
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 3
 
     src/introduction
     src/math
