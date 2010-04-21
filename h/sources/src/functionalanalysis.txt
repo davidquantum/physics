@@ -38,13 +38,13 @@ Union and intersection of subspaces
 -----------------------------------
 
 Let $V$ be a linear space and $W_1$ and $W_2$ subspaces of $V$. Then the **intersection** is $W_1\cap W_2$
-and it is never an empty set - contains at least the zero element. Furthermore, the intersection
+and it is never an empty set - contains at least the zero element. Furthermore, intersection
 of two subspaces is always a linear space. It is sufficient to show that
 $z_1,\: z_2\in W_1 \cap W_2 \Rightarrow az_1 + bz_2 \in W_1 \cap W_2$.  This is due to 
 the linearity as $w_1$ and $w_2$ both belong to $W_1$ and $W_2$. Therefore $az_1 + bz_2$ belong to the
 both of the subspaces as well and this results that $az_1 + bz_2 \in W_1 \cap W_2$.
 
-At the same time, the **union** of two subspaces $W_1 \cup W_2$ is not necessarily a subspace.
+At the same time, **union** of two subspaces $W_1 \cup W_2$ is not necessarily a subspace.
 
 
 Determinants, eigenvalues, and eigenvectors

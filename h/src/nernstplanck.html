@@ -43,8 +43,30 @@
             
   <div class="section" id="poisson-nernst-planck-equation">
 <h1>Poisson Nernst-Planck Equation<a class="headerlink" href="#poisson-nernst-planck-equation" title="Permalink to this headline">¶</a></h1>
-<p>This section describes how to make a weak form presentation
-of Poisson and Nernst-Planck equation system. The Nernst-Planck
+<p><strong>Git reference:</strong> Example <a class="reference external" href="http://hpfem.org/git/gitweb.cgi/hermes2d.git/tree/HEAD:/examples/newton-np-timedep-adapt-system">newton-np-timedep-adapt-system</a>.</p>
+<p><strong>Equation reference:</strong> The first version of the following derivation was published in:
+<em>IPMC: recent progress in modeling, manufacturing, and new applications
+D. Pugal, S. J. Kim, K. J. Kim, and K. K. Leang
+Proc. SPIE 7642, (2010)</em>.
+The following Bibtex entry can be used for the reference:</p>
+<div class="highlight-python"><pre>@conference{pugal:76420U,
+        author = {D. Pugal and S. J. Kim and K. J. Kim and K. K. Leang},
+        editor = {Yoseph Bar-Cohen},
+        title = {IPMC: recent progress in modeling, manufacturing, and new applications},
+        publisher = {SPIE},
+        year = {2010},
+        journal = {Electroactive Polymer Actuators and Devices (EAPAD) 2010},
+        volume = {7642},
+        number = {1},
+        numpages = {10},
+        pages = {76420U},
+        location = {San Diego, CA, USA},
+        url = {http://link.aip.org/link/?PSI/7642/76420U/1},
+        doi = {10.1117/12.848281}
+}</pre>
+</div>
+<p>The example is concerned with the finite element solution
+of the Poisson and Nernst-Planck equation system. The Nernst-Planck
 equation is often used to describe the diffusion, convection,
 and migration of charged particles:</p>
 <div class="math" id="equation-nernstplanck">
@@ -83,7 +105,11 @@ The inital configuration is shown:</p>
 <p>The purploe dots are mobile cations. When a voltage is applied, the anions
 drift:</p>
 <div align="center" class="align-center"><img alt="Bent IPMC" class="align-center" src="../images/IPMC_bent.png" style="width: 385px; height: 290px;" /></div>
-<p>This eventually results in actuation (mostly bending) of the material (not considered in this section).</p>
+<p>Images reference:
+<em>IPMC: recent progress in modeling, manufacturing, and new applications
+D. Pugal, S. J. Kim, K. J. Kim, and K. K. Leang
+Proc. SPIE 7642, (2010)</em>
+This eventually results in actuation (mostly bending) of the material (not considered in this section).</p>
 <p>To solve equations <a href="#equation-nernstplanck">(1)</a> and <a href="#equation-poisson">(2)</a> boundary conditions must be specified as well.
 When solving in 2D, just a cross section is considered. The boundaries are
 shown in:</p>
@@ -95,7 +121,7 @@ boundary conditions:</p>
 </div></p><p>For Poisson equation:</p>
 <blockquote>
 <ol class="arabic simple">
-<li>(positive voltage): <img class="math" src="../images/math/bc82ad5191fcffd6c1affc79abf42ad3b9a08670.png" alt="\frac{\partial \phi}{\partial n} = -E_{applied}"/>. We cannot apply just Dirichlet boundary, i.e. <img class="math" src="../images/math/0908c9dfd7fc30648dcca15f81264c1e77797b12.png" alt="\phi = 3V"/> as then <a href="#equation-nernstplanck">(1)</a> would not converge in time. It means that the charge accumulation near the boundary would increase continually.</li>
+<li>(positive voltage): Dirichlet boundary <img class="math" src="../images/math/212f89d1e73c39ec8736df6259bf07e0357a212d.png" alt="\phi = 1V"/>. For some cases it might be necessary to use electric field strength as the boundary condtition. Then the Neumann boundary <img class="math" src="../images/math/89c5c326ab09c98a738666b0ed32f9c0b86f9f0b.png" alt="\frac{\partial \phi}{\partial n} = E_{field}"/> can be used.</li>
 <li>(ground): Dirichlet boundary <img class="math" src="../images/math/8f5799a5ace8666d73938f6e2d5bc994777a8f87.png" alt="\phi = 0"/>.</li>
 <li>(insulation): Neumann boundary <img class="math" src="../images/math/4baf98907f5808c209019ded9455da69a9e16e6a.png" alt="\frac{\partial \phi}{\partial n} = 0"/>.</li>
 </ol>
@@ -147,110 +173,113 @@ By expanding the nonlinear 4th term, the weak form becomes:</p>
         K\int_{\Omega} C \left(\nabla\phi\cdot\nabla v\right) d\mathbf{x}=0" />
 </div></p><p>The weak form of equation <a href="#equation-poissonsimple">(6)</a> with test function <img class="math" src="../images/math/9ad99798ec4c38e165cf517cb9e02b1c9e824103.png" alt="u"/> is:</p>
 <div class="math" id="equation-poissonweak1">
-<p><span class="eqno">(12)</span><img src="../images/math/ea57595ba6b27d4b22437e8587717f3c5f320872.png" alt="-\int_{\Omega}\Delta\phi u d\mathbf{x}-\int_{\Omega}LCu d\mathbf{x}+
-        \int_{\Omega}LC_{0}u d\mathbf{x}+\int_{\Gamma}\frac{\partial \phi}{\partial n}u d\mathbf{S}=0." />
+<p><span class="eqno">(12)</span><img src="../images/math/a2e252084dd989c7b69488f835586ad2e9180902.png" alt="-\int_{\Omega}\Delta\phi u d\mathbf{x}-\int_{\Omega}LCu d\mathbf{x}+
+        \int_{\Omega}LC_{0}u d\mathbf{x}=0." />
 </div></p><p>After expanding the Laplace&#8217; terms, the equation becomes:</p>
 <div class="math" id="equation-poissonweak2">
-<p><span class="eqno">(13)</span><img src="../images/math/367542bbd51ae299304feb884599e82877db6551.png" alt="\int_{\Omega}\nabla\phi\cdot\nabla u d\mathbf{x}-\int_{\Omega}LCu d\mathbf{x}+
-        \int_{\Omega}LC_{0}u d\mathbf{x} +\int_{\Gamma}\frac{\partial \phi}{\partial n}u d\mathbf{S}=0," />
-</div></p><p>where the last term could be written <img class="math" src="../images/math/929a5f14d4bcb07f6aa4ec9c0b165fa21683e92f.png" alt="-\int_{\Gamma}E_{applied}u"/>.</p>
+<p><span class="eqno">(13)</span><img src="../images/math/abd551c717193659f60223a0c144153a33513a1a.png" alt="\int_{\Omega}\nabla\phi\cdot\nabla u d\mathbf{x}-\int_{\Omega}LCu d\mathbf{x}+
+        \int_{\Omega}LC_{0}u d\mathbf{x}=0." />
+</div></p><p>Notice, when electric field strength is used as a boundary condition, then the contribution of
+the corresponding surface integral must be added:</p>
+<div class="math" id="equation-poissonweak3">
+<p><span class="eqno">(14)</span><img src="../images/math/7d1703784cc756954e9534b7fc75dbbd7839cdcf.png" alt="\int_{\Omega}\nabla\phi\cdot\nabla u d\mathbf{x}-\int_{\Omega}LCu d\mathbf{x}+
+        \int_{\Omega}LC_{0}u d\mathbf{x}+\int_{\Gamma}\frac{\partial \phi}{\partial n}u d\mathbf{S}=0." />
+</div></p><p>However, for the most cases we use only Poisson boundary conditions to set the voltage. Therefore the last
+term of <a href="#equation-poissonweak3">(14)</a> is omitted and <a href="#equation-poissonweak2">(13)</a> is used instead in the following sections.</p>
 </div>
 <div class="section" id="jacobian-matrix">
 <h2>Jacobian matrix<a class="headerlink" href="#jacobian-matrix" title="Permalink to this headline">¶</a></h2>
 <p>Equation <a href="#equation-nernstweak3">(10)</a> is time dependent, thus some time stepping
 method must be chosen. For simplicity we start with first order Euler implicit method</p>
 <div class="math" id="equation-euler">
-<p><span class="eqno">(14)</span><img src="../images/math/73063a852b0ac703fa6d7549e6c3ab75d2d48b39.png" alt="\frac{\partial C}{\partial t} \approx \frac{C^{n+1} - C^n}{\tau}" />
+<p><span class="eqno">(15)</span><img src="../images/math/73063a852b0ac703fa6d7549e6c3ab75d2d48b39.png" alt="\frac{\partial C}{\partial t} \approx \frac{C^{n+1} - C^n}{\tau}" />
 </div></p><p>where <img class="math" src="../images/math/1dc1c0119a604b91be9142370dc3159b6a9bbcb9.png" alt="\tau"/> is the time step. We will use the following notation:</p>
 <div class="math" id="equation-cplus">
-<p><span class="eqno">(15)</span><img src="../images/math/87023de96ba24584f70360797618301ef5d70b90.png" alt="C^{n+1} = \sum_{k=1}^{N^C} y_k^{C} v_k^{C}, \ \ \
+<p><span class="eqno">(16)</span><img src="../images/math/87023de96ba24584f70360797618301ef5d70b90.png" alt="C^{n+1} = \sum_{k=1}^{N^C} y_k^{C} v_k^{C}, \ \ \
           \phi^{n+1} = \sum_{k=1}^{N^{\phi}} y_k^{\phi} v_k^{\phi}." />
 </div></p><p>In the new notation, time-discretized equation <a href="#equation-nernstweak4">(11)</a> becomes:</p>
 <div class="math" id="equation-Fic">
-<p><span class="eqno">(16)</span><img src="../images/math/6f2c4eca8aaeb6720591b160409c8966e87e1f33.png" alt="F_i^C(Y) = \int_{\Omega} \frac{C^{n+1}}{\tau}v_i^C d\mathbf{x} -
+<p><span class="eqno">(17)</span><img src="../images/math/6f2c4eca8aaeb6720591b160409c8966e87e1f33.png" alt="F_i^C(Y) = \int_{\Omega} \frac{C^{n+1}}{\tau}v_i^C d\mathbf{x} -
         \int_{\Omega} \frac{C^{n}}{\tau}v_i^C d\mathbf{x}
         + D\int_{\Omega} \nabla C^{n+1} \cdot \nabla v_i^C d\mathbf{x}
         + K \int_{\Omega}C^{n+1} (\nabla \phi^{n+1} \cdot \nabla v_i^C) d\mathbf{x}," />
 </div></p><p>and equation <a href="#equation-poissonweak2">(13)</a> becomes:</p>
 <div class="math" id="equation-Fiphi">
-<p><span class="eqno">(17)</span><img src="../images/math/db2ebe44938f7b6d6ac9c62615e6fcaa0f98af4e.png" alt="F_i^{\phi}(Y) = \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_i^{\phi} d\mathbf{x}
-        - \int_{\Omega} LC^{n+1}v_i^{\phi} d\mathbf{x} + \int_{\Omega} LC_0 v_i^{\phi} d\mathbf{x}
-        - \int_{\Gamma} E_{applied}v_i^{\phi} d\mathbf{x}." />
+<p><span class="eqno">(18)</span><img src="../images/math/a8bb9d1d793df2e3374f694bc4892c2a1b4f858d.png" alt="F_i^{\phi}(Y) = \int_{\Omega} \nabla \phi^{n+1} \cdot \nabla v_i^{\phi} d\mathbf{x}
+        - \int_{\Omega} LC^{n+1}v_i^{\phi} d\mathbf{x} + \int_{\Omega} LC_0 v_i^{\phi} d\mathbf{x}." />
 </div></p><p>The Jacobian matrix <img class="math" src="../images/math/393848847c8dcf7fedfba6dd771828b7e424d6c7.png" alt="DF/DY"/> has <img class="math" src="../images/math/7901356dd65ec4da1b694937cc4ffc663e90d800.png" alt="2\times 2"/> block structure, with blocks
 corresponding to</p>
 <div class="math" id="equation-jacobianelements">
-<p><span class="eqno">(18)</span><img src="../images/math/b0d9603258de955d476f11e11a1384a0f36dac82.png" alt="\frac{\partial F_i^C}{\partial y_j^C}, \ \ \ \frac{\partial F_i^C}{\partial y_j^{\phi}}, \ \ \
+<p><span class="eqno">(19)</span><img src="../images/math/b0d9603258de955d476f11e11a1384a0f36dac82.png" alt="\frac{\partial F_i^C}{\partial y_j^C}, \ \ \ \frac{\partial F_i^C}{\partial y_j^{\phi}}, \ \ \
         \frac{\partial F_i^{\phi}}{\partial y_j^C}, \ \ \ \frac{\partial F_i^{\phi}}{\partial y_j^{\phi}}." />
 </div></p><p>Taking the derivatives of <img class="math" src="../images/math/1f5df7624ff1a351f36d44626a528da7f5c76943.png" alt="F^C_i"/> with respect to <img class="math" src="../images/math/24a7f24bf7b5c5306d253389ead4e6f7627425d3.png" alt="y_j^C"/> and <img class="math" src="../images/math/27e56fc5cb07d389fa3f03b39fc80319e03322c7.png" alt="y_j^{\phi}"/>, we get</p>
 <div class="math" id="equation-bilin1">
-<p><span class="eqno">(19)</span><img src="../images/math/3f10b99e4839d1d1c945f5e11b681e8ecab9d6f1.png" alt="\frac{\partial F_i^C}{\partial y_j^C} =
+<p><span class="eqno">(20)</span><img src="../images/math/3f10b99e4839d1d1c945f5e11b681e8ecab9d6f1.png" alt="\frac{\partial F_i^C}{\partial y_j^C} =
         \int_{\Omega} \frac{1}{\tau} v_j^C v_i^C d\mathbf{x} +
         D\int_{\Omega} \nabla v_j^C \cdot \nabla v_i^C d\mathbf{x}
         + K\int_{\Omega} v_j^C (\nabla \phi^{n+1} \cdot \nabla v_i^C) d\mathbf{x}," />
 </div></p><div class="math" id="equation-bilin2">
-<p><span class="eqno">(20)</span><img src="../images/math/909b26024076879e89c4928b5d6a50935c6fa700.png" alt="\frac{\partial F_i^C}{\partial y_j^{\phi}} =
+<p><span class="eqno">(21)</span><img src="../images/math/909b26024076879e89c4928b5d6a50935c6fa700.png" alt="\frac{\partial F_i^C}{\partial y_j^{\phi}} =
         K \int_{\Omega} C^{n+1} (\nabla v_j^{\phi} \cdot \nabla v_i^C) d\mathbf{x}." />
 </div></p><p>Taking the derivatives of <img class="math" src="../images/math/e2979d4916ada2a84084daa472c126bb7c13ccb0.png" alt="F^{\phi}_i"/> with respect to <img class="math" src="../images/math/24a7f24bf7b5c5306d253389ead4e6f7627425d3.png" alt="y_j^C"/> and <img class="math" src="../images/math/27e56fc5cb07d389fa3f03b39fc80319e03322c7.png" alt="y_j^{\phi}"/>, we get</p>
 <div class="math" id="equation-bilin3">
-<p><span class="eqno">(21)</span><img src="../images/math/772b54ab20ff40446e4d84e207826d8113724dd5.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^C} =
+<p><span class="eqno">(22)</span><img src="../images/math/772b54ab20ff40446e4d84e207826d8113724dd5.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^C} =
         - \int_{\Omega} L v_j^C v_i^{\phi} d\mathbf{x}," />
 </div></p><div class="math" id="equation-bilin4">
-<p><span class="eqno">(22)</span><img src="../images/math/110f7739628d023ff6d151a74a0ef08d8a5e7698.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^{\phi}} =
+<p><span class="eqno">(23)</span><img src="../images/math/110f7739628d023ff6d151a74a0ef08d8a5e7698.png" alt="\frac{\partial F_i^{\phi}}{\partial y_j^{\phi}} =
         \int_{\Omega} \nabla v_j^{\phi} \cdot \nabla v_i^{\phi} d\mathbf{x}." />
-</div></p><p>In Hermes, equations <a href="#equation-Fic">(16)</a> and <a href="#equation-Fiphi">(17)</a> are used to define the residuum <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F"/>, and
-equations <a href="#equation-bilin1">(19)</a> - <a href="#equation-bilin4">(22)</a> to define the Jacobian matrix <img class="math" src="../images/math/abb5588023cfa1ac14643e9778699f03eecc57a3.png" alt="J"/>.</p>
+</div></p><p>In Hermes, equations <a href="#equation-Fic">(17)</a> and <a href="#equation-Fiphi">(18)</a> are used to define the residuum <img class="math" src="../images/math/a055f405829e64a3b70253ab67cb45ed6ed5bb29.png" alt="F"/>, and
+equations <a href="#equation-bilin1">(20)</a> - <a href="#equation-bilin4">(23)</a> to define the Jacobian matrix <img class="math" src="../images/math/abb5588023cfa1ac14643e9778699f03eecc57a3.png" alt="J"/>.
+It must be noted that in addition to the implicit Euler iteration Crank-Nicolson iteration is implemented
+in the code (see the next section for the references of the source files).</p>
 </div>
 <div class="section" id="simulation">
 <h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
-<p>To begin with simulations in Hermes2D, the equations <a href="#equation-Fic">(16)</a> - <a href="#equation-bilin4">(22)</a> must be implemented.
-It is done by implementing the callback functions found in  <a class="reference external" href="http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/forms.cpp">newton-np-timedep-adapt-system/forms.cpp</a>.</p>
+<p>To begin with simulations in Hermes2D, the equations <a href="#equation-Fic">(17)</a> - <a href="#equation-bilin4">(23)</a> were be implemented.
+It was done by implementing the callback functions found in  <a class="reference external" href="http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/forms.cpp">newton-np-timedep-adapt-system/forms.cpp</a>.</p>
 <p>The functions along with the boundary conditions:</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="c">// Poisson takes Dirichlet and Neumann boundaries</span>
 <span class="kt">int</span> <span class="nf">phi_bc_types</span><span class="p">(</span><span class="kt">int</span> <span class="n">marker</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">marker</span> <span class="o">==</span> <span class="n">SIDE_MARKER</span> <span class="o">||</span> <span class="n">marker</span> <span class="o">==</span> <span class="n">TOP_MARKER</span><span class="p">)</span>
-                <span class="o">?</span> <span class="n">BC_NATURAL</span> <span class="o">:</span> <span class="n">BC_ESSENTIAL</span><span class="p">;</span>
+          <span class="k">return</span> <span class="p">(</span><span class="n">marker</span> <span class="o">==</span> <span class="n">SIDE_MARKER</span> <span class="o">||</span> <span class="p">(</span><span class="n">marker</span> <span class="o">==</span> <span class="n">TOP_MARKER</span> <span class="o">&amp;&amp;</span> <span class="n">VOLT_BOUNDARY</span> <span class="o">==</span> <span class="mi">2</span><span class="p">))</span>
+              <span class="o">?</span> <span class="n">BC_NATURAL</span> <span class="o">:</span> <span class="n">BC_ESSENTIAL</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="c">//Nernst-Planck takes Neumann boundaries</span>
+<span class="c">// Nernst-Planck takes Neumann boundaries</span>
 <span class="kt">int</span> <span class="nf">C_bc_types</span><span class="p">(</span><span class="kt">int</span> <span class="n">marker</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">BC_NATURAL</span><span class="p">;</span>
+          <span class="k">return</span> <span class="n">BC_NATURAL</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="c">//Dirichlet boundary conditions for Poisson equation</span>
+<span class="c">// Diricleht Boundary conditions for Poisson equation.</span>
 <span class="n">scalar</span> <span class="nf">phi_bc_values</span><span class="p">(</span><span class="kt">int</span> <span class="n">marker</span><span class="p">,</span> <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="mf">0.0</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c">//Neumann boundary of Poisson equation as linear sufrace integral</span>
-<span class="n">Scalar</span> <span class="nf">linear_form_surf_top</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">wt</span><span class="p">,</span> <span class="n">Func</span><span class="o">&lt;</span><span class="n">Real</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">v</span><span class="p">,</span> <span class="n">Geom</span><span class="o">&lt;</span><span class="n">Real</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">e</span><span class="p">,</span> <span class="n">ExtData</span><span class="o">&lt;</span><span class="n">Scalar</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">ext</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="o">-</span><span class="n">E_FIELD</span> <span class="o">*</span> <span class="n">int_v</span><span class="o">&lt;</span><span class="n">Real</span><span class="p">,</span> <span class="n">Scalar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">wt</span><span class="p">,</span> <span class="n">v</span><span class="p">);</span>
+          <span class="k">return</span> <span class="n">marker</span> <span class="o">==</span> <span class="n">TOP_MARKER</span> <span class="o">?</span> <span class="n">VOLTAGE</span> <span class="o">:</span> <span class="mf">0.0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>are assembled as follows:</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="n">WeakForm</span> <span class="n">wf</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">Solution</span> <span class="n">Cp</span><span class="p">,</span> <span class="n">Ci</span><span class="p">,</span> <span class="n">phip</span><span class="p">,</span> <span class="n">phii</span><span class="p">;</span>
-<span class="n">wf</span><span class="p">.</span><span class="n">add_biform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">J_euler_DFcDYc</span><span class="p">),</span> <span class="n">UNSYM</span><span class="p">,</span> <span class="n">ANY</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">phii</span><span class="p">);</span>
-<span class="n">wf</span><span class="p">.</span><span class="n">add_biform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">J_euler_DFphiDYphi</span><span class="p">),</span> <span class="n">UNSYM</span><span class="p">);</span>
-<span class="n">wf</span><span class="p">.</span><span class="n">add_biform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">J_euler_DFcDYphi</span><span class="p">),</span> <span class="n">UNSYM</span><span class="p">,</span> <span class="n">ANY</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Ci</span><span class="p">);</span>
+<span class="n">Solution</span> <span class="n">C_prev_time</span><span class="p">,</span> <span class="n">C_prev_newton</span><span class="p">,</span> <span class="n">phi_prev_time</span><span class="p">,</span> <span class="n">phi_prev_newton</span><span class="p">;</span>
+<span class="n">wf</span><span class="p">.</span><span class="n">add_liform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">Fc_euler</span><span class="p">),</span> <span class="n">ANY</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="o">&amp;</span><span class="n">C_prev_time</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">C_prev_newton</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">phi_prev_newton</span><span class="p">);</span>
+<span class="n">wf</span><span class="p">.</span><span class="n">add_liform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">Fphi_euler</span><span class="p">),</span> <span class="n">ANY</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">C_prev_newton</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">phi_prev_newton</span><span class="p">);</span>
+<span class="n">wf</span><span class="p">.</span><span class="n">add_biform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">J_euler_DFcDYc</span><span class="p">),</span> <span class="n">UNSYM</span><span class="p">,</span> <span class="n">ANY</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">phi_prev_newton</span><span class="p">);</span>
+<span class="n">wf</span><span class="p">.</span><span class="n">add_biform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">J_euler_DFcDYphi</span><span class="p">),</span> <span class="n">UNSYM</span><span class="p">,</span> <span class="n">ANY</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">C_prev_newton</span><span class="p">);</span>
 <span class="n">wf</span><span class="p">.</span><span class="n">add_biform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">J_euler_DFphiDYc</span><span class="p">),</span> <span class="n">UNSYM</span><span class="p">);</span>
-<span class="n">wf</span><span class="p">.</span><span class="n">add_liform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">Fc_euler</span><span class="p">),</span> <span class="n">ANY</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Cp</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Ci</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">phii</span><span class="p">);</span>
-<span class="n">wf</span><span class="p">.</span><span class="n">add_liform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">Fphi_euler</span><span class="p">),</span> <span class="n">ANY</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">Ci</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">phii</span><span class="p">);</span>
-<span class="n">wf</span><span class="p">.</span><span class="n">add_liform_surf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">linear_form_surf_top</span><span class="p">),</span> <span class="n">TOP_MARKER</span><span class="p">);</span>
+<span class="n">wf</span><span class="p">.</span><span class="n">add_biform</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">callback</span><span class="p">(</span><span class="n">J_euler_DFphiDYphi</span><span class="p">),</span> <span class="n">UNSYM</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>where the variables <tt class="docutils literal"><span class="pre">Cp</span></tt>, <tt class="docutils literal"><span class="pre">Ci</span></tt>, <tt class="docutils literal"><span class="pre">phip</span></tt>, and <tt class="docutils literal"><span class="pre">phii</span></tt> are solutions concentration
-<img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> and voltage <img class="math" src="../images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/>. The suffixes <em>i</em> and <em>p</em> are current iteration and previous
-iteration respectively.</p>
+<p>where the variables <tt class="docutils literal"><span class="pre">C_prev_time</span></tt>, <tt class="docutils literal"><span class="pre">C_prev_newton</span></tt>,
+<tt class="docutils literal"><span class="pre">phi_prev_time</span></tt>, and <tt class="docutils literal"><span class="pre">phi_prev_newton</span></tt> are solutions of concentration
+<img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> and voltage <img class="math" src="../images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/>. The suffixes <em>newton</em> and <em>time</em> are current iteration and previous
+time step, respectively.</p>
 <p>When it comes to meshing, it should be considered that the gradient of <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> near the boundaries will
 be higher than gradients of <img class="math" src="../images/math/2c175f60eecef1de7560c3bdea495d69f26f719d.png" alt="\phi"/>. This allows us to create different meshes for those variables. In
 <a class="reference external" href="http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/main.cpp">main.cpp</a>.
-the following code in the <em>main()</em> function is for having multimeshing</p>
+the following code in the <em>main()</em> function enables multimeshing</p>
 <div class="highlight-c"><div class="highlight"><pre><span class="n">H1Space</span> <span class="n">C</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Cmesh</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">shapeset</span><span class="p">);</span>
 <span class="n">H1Space</span> <span class="n">phi</span><span class="p">(</span><span class="n">MULTIMESH</span> <span class="o">?</span> <span class="o">&amp;</span><span class="n">phimesh</span> <span class="o">:</span> <span class="o">&amp;</span><span class="n">Cmesh</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">shapeset</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>When <tt class="docutils literal"><span class="pre">MULTIMESH</span></tt> is defined in <a class="reference external" href="http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/header.h">header.h</a>.
+<p>When <tt class="docutils literal"><span class="pre">MULTIMESH</span></tt> is defined in <a class="reference external" href="http://hpfem.org/git/gitweb.cgi/hermes2d.git/blob/HEAD:/examples/newton-np-timedep-adapt-system/main.cpp">main.cpp</a>.
 then different H1Spaces for <tt class="docutils literal"><span class="pre">phi</span></tt> and <tt class="docutils literal"><span class="pre">C</span></tt> are created. It must be noted that when adaptivity
 is not used, the multimeshing in this example does not have any advantage, however, when
 adaptivity is turned on, then mesh for H1Space <tt class="docutils literal"><span class="pre">C</span></tt> is refined much more than for <tt class="docutils literal"><span class="pre">phi</span></tt>.</p>
@@ -260,18 +289,15 @@ adaptivity is turned on, then mesh for H1Space <tt class="docutils literal"><spa
 <p>The following figure shows the calculated concentration <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/> inside the IPMC.</p>
 <div align="center" class="align-center"><img alt="Calculated concentration" class="align-center" src="../images/nonadapt_conc.png" /></div>
 <p>As it can be seen, the concentration is rather uniform in the middle of domain. In fact, most of the
-concentration gradient is near the electrodes, within 1% of the total thickness. That is why the refinement
-of the mesh prior solving is done near the electrode boundaries. Here we see the zoomed in region of
-the boundary where <img class="math" src="../images/math/4b5ac570c96fddbeae171074d1bcf7f03113b585.png" alt="\phi=0"/> for <a href="#equation-poisson">(2)</a> (Dirichlet BC):</p>
-<div align="center" class="align-center"><img alt="Calculated concentration near the electrodes" class="align-center" src="../images/nonadapt_conc2.png" /></div>
+concentration gradient is near the electrodes, within 5...10% of the total thickness. That is why the refinement</p>
 <p>The voltage inside the IPMC forms as follows:</p>
 <div align="center" class="align-center"><img alt="Calculated voltage inside the IPMC" class="align-center" src="../images/nonadapt_phi.png" /></div>
-<p>Here we see that the voltage gradient is much more uniform across the thickness than it is for <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/>.
+<p>Here we see that the voltage gradient is smaller and more uniform near the boundaries than it is for <img class="math" src="../images/math/c3355896da590fc491a10150a50416687626d7cc.png" alt="C"/>.
 That is where <strong>the adaptive multimeshing</strong> can become useful.</p>
 </div>
 <div class="section" id="adaptive-solution">
 <h2>Adaptive solution<a class="headerlink" href="#adaptive-solution" title="Permalink to this headline">¶</a></h2>
-<p>Will come soon.</p>
+<p>To be added soon.</p>
 </div>
 </div>
 
@@ -327,7 +353,7 @@ That is where <strong>the adaptive multimeshing</strong> can become useful.</p>
     </div>
     <div class="footer">
       &copy; Copyright 2010, David Pugal.
-      Last updated on Mar 24, 2010.
+      Last updated on Apr 21, 2010.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 0.6.2.
     </div>
   </body>
