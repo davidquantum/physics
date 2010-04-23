@@ -7,7 +7,7 @@ David's homepage
 ================
 
 .. toctree::
-    :maxdepth: 3
+    :maxdepth: 2
 
     src/introduction
     src/math
