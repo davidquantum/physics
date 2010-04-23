@@ -236,22 +236,22 @@ pygments_style = 'sphinx'
 html_theme = 'default'
 
 html_theme_options = {
-'bodyfont': 'verdana, helvetica, arial, sans-serif',
+'bodyfont': '"Lucida Grande", "Lucida Sans Unicode", arial, verdana, helvetica, sans-serif',
 'bgcolor': '#FFFFFF',
-'textcolor': '#000000',
+'textcolor': '#333333',
 'linkcolor': '#3D5C7A',
 'rightsidebar': False,
-'sidebarbgcolor': '#F8F8F8',
+'sidebarbgcolor': '#c6cddc',
 'sidebartextcolor': '#000000',
 'sidebarlinkcolor': '#3D5C7A',
-'headfont': '"trebuchet ms", verdana, helvetica, arial, sans-serif',
-'headbgcolor': '#FFFFFF',
+'headfont': '"Lucida Grande", "Lucida Sans Unicode", verdana, helvetica, arial, sans-serif',
+'headbgcolor': '#eff1f4',
 'headtextcolor': '#7590AE',
 'headlinkcolor': '#3D5C7A',
 'codebgcolor': '#F5F5F5',
 'codetextcolor': '#000000',
 
-'relbarbgcolor': '#824513',
+'relbarbgcolor': '#435682',
 'relbartextcolor': '#000000',
 'relbarlinkcolor': '#FFFFFF',
 'footerbgcolor': '#FFFFFF',
@@ -268,10 +268,10 @@ html_theme_options = {
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = 'Physics' 
+html_title = 'Homepage' 
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = 'Content'
+html_short_title = 'Main page'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
