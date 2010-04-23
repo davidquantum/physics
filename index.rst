@@ -11,7 +11,7 @@ David's homepage
 
     src/introduction
     src/math
-    src/nernstplanck
+    src/research
 
 .. #####
 
