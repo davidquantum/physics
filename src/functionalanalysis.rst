@@ -35,7 +35,7 @@ For instance, when $V=\mathbb{R}^3$ then  $W=\left\{w\in V;\quad w_3=0\right\}$ 
 that lay on x-y plane and $W$ is a subspace of $V$.
 
 Union and intersection of subspaces
------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let $V$ be a linear space and $W_1$ and $W_2$ subspaces of $V$. Then the **intersection** is $W_1\cap W_2$
 and it is never an empty set - contains at least the zero element. Furthermore, intersection
@@ -45,6 +45,44 @@ the linearity as $w_1$ and $w_2$ both belong to $W_1$ and $W_2$. Therefore $az_1
 both of the subspaces as well and this results that $az_1 + bz_2 \in W_1 \cap W_2$.
 
 At the same time, **union** of two subspaces $W_1 \cup W_2$ is not necessarily a subspace.
+
+Linear combination
+^^^^^^^^^^^^^^^^^^
+
+Let $V$ be a linear space and $v_1,\, v_2\in V$ and $c_1,\, c_2\in \mathbb{R}$  then the element $v$
+
+.. math::
+	:label: linear combination
+
+		v=\sum_{i=1}^n c_i v_i
+
+of $V$ is a linear combination of the elements $v_1,\, v_2,\, \dots, \, v_n$ with the
+coefficients $c_1,\, c_2,\, \dots, \, c_n$
+
+Linear span
+^^^^^^^^^^^
+
+Let $V$ be a linear space and $v_1,\, v_2,\, \dots, \, v_n \in V$ then linear span
+$\left[ v_1,\, v_2, \, \dots ,\, v_n\right]$ or $span\left\{ v_1,\, v_2, \, \dots ,\, v_n\right\}$
+is the smallest subspace of $V$ containing $v_1,\, v_2,\, \dots \, v_n$.
+In the other words, $v_1,\, v_2,\, \dots, \, v_n$ are said to span $V$ if every element $v \in V$
+can be expressed as a linear combination of $v_1,\, v_2,\, \dots, \, v_n$
+
+Let $S=\left\{ v_1,\, v_2,\, \dots , \, v_n\right\}\subset V$ then $\left[ S \right]$ is equal
+to the set of all linear cobinations of elements of $S$.
+
+Basic properites of linear span:
+Let $V$ be a linear space and $S_1, \, S_2$ subsets uf $V$ then
+
+#. $S_1 \subset \left[ S_1 \right]$,
+
+#. $S_1 \subset S_2 \Rightarrow \left[ S_1 \right] \subset \left[ S_2 \right]$,
+
+#. $\left[ \left[ S_1 \right] \right] = \left[ S_1 \right]$,
+
+#. if $S_1 = 0$ then $\left[ S_1 \right] = \left\{ 0 \right\}$
+
+#. if $S_1 \subset S_2 \subset \left[ S_1 \right] \Rightarrow \left[ S_1 \right] = \left[ S_2 \right]$.
 
 
 Determinants, eigenvalues, and eigenvectors
@@ -64,3 +102,11 @@ is a function $f:{1,2,3}\rightarrow {1,2,3}$ that assigns:
 
 For a permutation $P \in S_{n}$ let $m$ be a number of pairs $(i,j)\ \set {1,2,...,n},\ i<j$
 such that $P(i)>P(j)$.
+
+Normed spaces
+-------------
+
+Definition of norm
+^^^^^^^^^^^^^^^^^^
+
+
