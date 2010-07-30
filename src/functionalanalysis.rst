@@ -37,12 +37,15 @@ that lay on x-y plane and $W$ is a subspace of $V$.
 Union and intersection of subspaces
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let $V$ be a linear space and $W_1$ and $W_2$ subspaces of $V$. Then the **intersection** is $W_1\cap W_2$
-and it is never an empty set - contains at least the zero element. Furthermore, intersection
-of two subspaces is always a linear space. It is sufficient to show that
-$z_1,\: z_2\in W_1 \cap W_2 \Rightarrow az_1 + bz_2 \in W_1 \cap W_2$.  This is due to 
-the linearity as $w_1$ and $w_2$ both belong to $W_1$ and $W_2$. Therefore $az_1 + bz_2$ belong to the
-both of the subspaces as well and this results that $az_1 + bz_2 \in W_1 \cap W_2$.
+Let $V$ be a linear space and $W_1$ and $W_2$ subspaces of $V$. 
+
+**Intersection** 
+ is $W_1\cap W_2$
+ and it is never an empty set - contains at least the zero element. 
+ Furthermore, intersection of two subspaces is always a linear space. 
+| It is sufficient to show that $z_1,\: z_2\in W_1 \cap W_2 \Rightarrow az_1 + bz_2 \in W_1 \cap W_2$.  
+| This is due to the linearity as $w_1$ and $w_2$ both belong to $W_1$ and $W_2$. 
+| Therefore $az_1 + bz_2$ belong to the both of the subspaces as well and this results that $az_1 + bz_2 \in W_1 \cap W_2$.
 
 At the same time, **union** of two subspaces $W_1 \cup W_2$ is not necessarily a subspace.
 
@@ -59,8 +62,8 @@ Let $V$ be a linear space and $v_1,\, v_2\in V$ and $c_1,\, c_2\in \mathbb{R}$  
 of $V$ is a linear combination of the elements $v_1,\, v_2,\, \dots, \, v_n$ with the
 coefficients $c_1,\, c_2,\, \dots, \, c_n$
 
-Linear span
-^^^^^^^^^^^
+Linear span, sum and direct sum of subspaces
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let $V$ be a linear space and $v_1,\, v_2,\, \dots, \, v_n \in V$ then linear span
 $\left[ v_1,\, v_2, \, \dots ,\, v_n\right]$ or $span\left\{ v_1,\, v_2, \, \dots ,\, v_n\right\}$
@@ -84,6 +87,76 @@ Let $V$ be a linear space and $S_1, \, S_2$ subsets uf $V$ then
 
 #. if $S_1 \subset S_2 \subset \left[ S_1 \right] \Rightarrow \left[ S_1 \right] = \left[ S_2 \right]$.
 
+Let $W_1$ and $W_2$ be subspaces  of a linear space $V$.
+Then we define
+
+.. math::
+	:label: sum 
+
+	        W_1+W_2=\left[W_1\cup W_2\right]
+
+which is the linear span of the union of $W_1$ and $W_2$.
+For instance, let $V=P^3$, and 
+$W_1=\left\{v\in V;\quad v=a+bx;\quad a,b\in \mathbb{R}\right\}$
+and $W_2=\left\{v\in V;\quad v=cx^2;\quad c\in\mathbb{R}\right\}$
+then $W_1+W_2=\left\{v\in V;\quad v=a+bx+cx^2;\quad a,b,c\in \mathbb{R}\right\}$.
+$V$ is a direct sum of $W_1+W_2$ ($V=W_1\oplus W_2$) if
+
+#. $V=W_1+W_2$,
+
+#. $W_1 \cap W_2 = \left\{0\right\}$.
+
+Also, $V=W_1+W_2\iff$ every element of $v\in V$ can be **uniquely**
+expressed as $v=w_1+w_2$ where $w_1\in W_1$ and $w_2\in W_2$.
+
+For instance, consider $V=\mathbb{R}^{3\times 3}$ with the following
+subspaces:
+$W_1=\left\{M\in V;\quad m_{ij}=0,\quad i\neq j\right\}$,
+$W_2=\left\{M\in V;\quad m_{ij}=0,\quad j \geq i\right\}$,
+$W_3=\left\{M\in V;\quad m_{ij}=0,\quad j\leq i\right\}$.
+
+Then clearly $W_1\cap W_2=\left\{0\right\}$, $W_2 \cap W_3=\left\{0\right\}$,
+and $W_3 \cap W_1 = \left\{0\right\}$.
+Therefore $V=W_1\oplus W_2 \oplus W_3$.
+
+Linear independence, basis, dimension
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Let $V$ to be a linear space and $v_1,v_2,v_3,\dotsc ,v_n\in V$, 
+then these elements are linearly independent 
+if $\alpha_1v_1+\alpha_2v_2+\dotsb +\alpha_nv_n=0\implies \alpha_1=\alpha_2=\dotsb =\alpha_n=0$.
+Whenever we can find a linear combination  such that at least
+one $\alpha_i\neq 0$ then these elements are linearly dependent.
+
+| For instance, let $V=\mathbb{R}^2$ and $v_1=\begin{pmatrix}1\\0\end{pmatrix}$, and $v_2=\begin{pmatrix}1\\1\end{pmatrix}$. 
+| To find if $v_1$ and $v_2$ are linearly independent, let's check 
+| $\alpha_1v_1+\alpha_2v_2=\begin{pmatrix}0\\0\end{pmatrix}$
+| $\alpha_1\begin{pmatrix}1\\0\end{pmatrix}+\alpha_2\begin{pmatrix}1\\1\end{pmatrix}=\begin{pmatrix}0\\0\end{pmatrix}$
+| This results in
+| $\left\{\begin{array}{l}\alpha_1 + \alpha_2 = 0\\ \alpha_2=0\end{array}\right.$,
+| so necessarily $\alpha_1=\alpha_2=0$ and $v_1$ and $v_2$ are linearly independent.
+
+**Basis**
+ Let $V$ be a linear space. Then any set $S\subset V$ that is
+ linearly independent and $\left[S\right]=V$ is a basis of $V$.
+
+A linear space $V$ is separable if it has a finite basis, or a
+countable infinite one.
+
+All bases in a linear space have the same cardinality - number of elements
+in set. Furthermore, cardinality of any basis of a linear space
+$V$ is said to be the **dimension** of $V$, denoted $dim\left( V \right)$.
+
+**Expansion coefficients**
+ Let $V$ be a linear space and $B$ any basis of $V$ with $dim\left( V \right) = n < \infty$
+ Any element $v\in V$ can be uniquely expressed in the form
+
+.. math::
+        :label: expansion coefficients 
+
+                v=\sum_{i=1}^n \alpha_iv_i,
+
+where $B=\left\{v_1,\ v_2,\dotsc,v_n\right\}$ and $\alpha_i$ are expansion coefficients.
 
 Determinants, eigenvalues, and eigenvectors
 -------------------------------------------
