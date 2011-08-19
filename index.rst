@@ -11,7 +11,6 @@ David's homepage
 
     src/introduction
     src/math
-    src/research
 
 .. #####
 
