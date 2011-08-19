@@ -5,5 +5,5 @@ Math
     :maxdepth: 2
 
     functionalanalysis
-
+    numericalanalysis
 

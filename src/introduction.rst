@@ -18,6 +18,9 @@ List of publications:
 
 Journal papers:
 ^^^^^^^^^^^^^^^
+* ``Pugal, D.``; Kim, K.J.; Aabloo, A. (2011) `An explicit physics-based model of ionic polymer-metal composite actuators` *Journal of Applied Physics* *in review*
+* Kim, K.J.; ``Pugal, D.``; Leang, K. (2011) `A Twistable Ionic Polymer-Metal Composite Artificial Muscle for Marine Applications` *Marine Technology Society Journal* *accepted*
+* ``Pugal, D.``; Solin, P.; Kim, K.J., Aabloo, A. (2011) `Modeling Ionic Polymer-Metal Composites with Space-Time Adaptive Multimesh hp-FEM` *Communications in Computational Physics* *accepted*
 * ``Pugal, D.``; Jung, K.; Aabloo, A.; Kim, K. (2010). `Ionic polymer-metal composite mechanoelectrical transduction: review and perspectives. <http://www3.interscience.wiley.com/search/allsearch?mode=viewselected&product=journal&ID=123238505&view_selected.x=35&view_selected.y=15&view_selected=view_selected>`_  *Polymer International*, **59** (3), 279 - 289.
 * Park, I.S.; Kim, S.M.; ``Pugal, D.``; Huang, L.; Tam-Chang, S.W.; Kim, K.J. (2010). `Visualization of the cation migration in ionic polymer-metal composite under an electric field <http://dx.doi.org/10.1063/1.3293290>`_ *Applied Physics Letters*, **96**, 043301
 * ``Pugal, D.``; Kim, K.J.; Punning, A.; Kasemägi, H.; Kruusmaa, M.; Aabloo, A. (2008). `Finite A self-oscillating ionic polymer-metal composite bending actuator <http://dx.doi.org/10.1063/1.2903478>`_, *Journal of Applied Physics*, **103** (8), 084908
@@ -26,6 +29,9 @@ Journal papers:
 
 Conference proceedings:
 ^^^^^^^^^^^^^^^^^^^^^^^
+* Kim, S.J.; ``Pugal, D``; Wong, J.; Kim, K.J.; Yim, W. (2011) `A bio-inspired multi degree of freedom actuator based on a novel cylindrical ionic polymer-metal composite material` *The 15th International Conference on Advanced Robotics (ICAR) 2011*, Tallinn, Estonia
+* ``Pugal, D.``; Kim, K.J.; Leang, K.K.; Palmre, V. (2011) `Modeling and designing IPMCs for twisting motion: electromechanical and mechanoelectrical transduction` *Electroactive Polymer Actuators and Devices (EAPAD) 2011*, Proc. SPIE **7976**, p. 79761S. San Diego, CA, USA
+* ``Pugal, D.``; Kim, K.J.; Solin, P.; Aabloo, A. (2011) `A novel hp-FEM model for IPMC actuation` *Behavior and Mechanics of Multifunctional Materials and Composites 2011* Proc. SPIE **7978**, p. 79780E. San Diego, CA, USA
 * ``Pugal, D``; Kim, S.J.; Kim, K.J.; Leang, K.K. (2010). `IPMC: recent progress in modeling, manufacturing, and new applications. <http://dx.doi.org/10.1117/12.848281>`_ *Electroactive Polymer Actuators and Devices (EAPAD) 2010* Proc. SPIE **7642**, p.76420U. San Diego, CA, USA
 * ``Pugal, D``; Kim, K.J; Aabloo, A. (2010). `Modeling the transduction of IPMC in 3D configurations. <http://dx.doi.org/10.1117/12.847958>`_ *Behavior and Mechanics of Multifunctional Materials and Composites 2010* Proc. SPIE **7644**, p.76441T. San Diego, CA, USA
 * ``Pugal, D``; Aabloo, A; Kim, K.J; Jung, Y. (2009). `Modeling IPMC Material With Dynamic Surface Characteristics. <http://www.asmedl.org/dbt/dbt.jsp?KEY=ASMECP&Volume=2009&Issue=48975>`_ ASME 2009 Conference on Smart Materials, Adaptive Structures and Intelligent Systems (SMASIS2009) **2** 115-122. Oxnard, CA
