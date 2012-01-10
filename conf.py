@@ -233,30 +233,31 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  Major themes that come with
 # Sphinx are currently 'default' and 'sphinxdoc'.
-html_theme = 'default'
+#html_theme = 'default'
+html_theme = 'agogo'
 
-html_theme_options = {
-'bodyfont': '"Lucida Grande", "Lucida Sans Unicode", arial, verdana, helvetica, sans-serif',
-'bgcolor': '#FFFFFF',
-'textcolor': '#333333',
-'linkcolor': '#3D5C7A',
-'rightsidebar': False,
-'sidebarbgcolor': '#c6cddc',
-'sidebartextcolor': '#000000',
-'sidebarlinkcolor': '#3D5C7A',
-'headfont': '"Lucida Grande", "Lucida Sans Unicode", verdana, helvetica, arial, sans-serif',
-'headbgcolor': '#eff1f4',
-'headtextcolor': '#7590AE',
-'headlinkcolor': '#3D5C7A',
-'codebgcolor': '#F5F5F5',
-'codetextcolor': '#000000',
-
-'relbarbgcolor': '#435682',
-'relbartextcolor': '#000000',
-'relbarlinkcolor': '#FFFFFF',
-'footerbgcolor': '#FFFFFF',
-'footertextcolor': '#000000'
-}
+#html_theme_options = {
+#'bodyfont': '"Lucida Grande", "Lucida Sans Unicode", arial, verdana, helvetica, sans-serif',
+#'bgcolor': '#FFFFFF',
+#'textcolor': '#333333',
+#'linkcolor': '#3D5C7A',
+#'rightsidebar': False,
+#'sidebarbgcolor': '#c6cddc',
+#'sidebartextcolor': '#000000',
+#'sidebarlinkcolor': '#3D5C7A',
+#'headfont': '"Lucida Grande", "Lucida Sans Unicode", verdana, helvetica, arial, sans-serif',
+#'headbgcolor': '#eff1f4',
+#'headtextcolor': '#7590AE',
+#'headlinkcolor': '#3D5C7A',
+#'codebgcolor': '#F5F5F5',
+#'codetextcolor': '#000000',
+#
+#'relbarbgcolor': '#435682',
+#'relbartextcolor': '#000000',
+#'relbarlinkcolor': '#FFFFFF',
+#'footerbgcolor': '#FFFFFF',
+#'footertextcolor': '#000000'
+#}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -303,7 +304,7 @@ html_last_updated_fmt = '%b %d, %Y'
 #html_additional_pages = {}
 
 # If false, no module index is generated.
-#html_use_modindex = True
+html_use_modindex = True
 
 # If false, no index is generated.
 html_use_index = True
