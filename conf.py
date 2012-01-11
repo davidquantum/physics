@@ -269,10 +269,10 @@ html_theme = 'agogo'
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = 'Homepage' 
+html_title = 'David\'s homepage' 
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = 'Main page'
+html_short_title = 'David\'s homepage'
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -304,13 +304,13 @@ html_last_updated_fmt = '%b %d, %Y'
 #html_additional_pages = {}
 
 # If false, no module index is generated.
-html_use_modindex = True
+html_use_modindex = False
 
 # If false, no index is generated.
-html_use_index = True
+html_use_index = False 
 
 # If true, the index is split into individual pages for each letter.
-#html_split_index = False
+html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
 html_show_sourcelink = False
@@ -324,7 +324,7 @@ html_show_sourcelink = False
 #html_file_suffix = ''
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Physicsdoc'
+htmlhelp_basename = 'David'
 
 
 # -- Options for LaTeX output --------------------------------------------------
