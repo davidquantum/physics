@@ -11,17 +11,4 @@ David's homepage
 
     src/introduction
     src/math
-
-.. #####
-
-    Indices and Tables
-    ==================
-
-    * :ref:`genindex`
-    * :ref:`modindex`
-
-    .. * :ref:`glossary`
-
-    * :ref:`search`
-
-    .. _Hermes2D: http://www.hpfem.org/hermes2d
+..    src/projects

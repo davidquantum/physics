@@ -2,30 +2,72 @@
 About me
 ========
 
-See `facebook <http://www.facebook.com/david.pugal>`_ 
-However, my official contact information:
+
+Contact
+-------
 
 * Current cell: (001) 775 453 3613
 * Estonian number (redirected to my US cell): 712 3613
-* E-mails in use: david.pugal[ääät}gmail.com, pugald[äät}unr.nevada.edu 
+* E-mail: david.pugal[ääät}gmail.com 
 * Skype: david_quantum 
 
 Postal address:
 	David Pugal, Mechanical Engineering Dept. (MS 312), University of Nevada, Reno,	Reno, NV 89557
 
-List of publications:
----------------------
+.. See also `facebook <http://www.facebook.com/david.pugal>`_ 
 
-Journal papers:
-^^^^^^^^^^^^^^^
-* ``Pugal, D.``; Kim, K.J.; Aabloo, A. (2011) `An explicit physics-based model of ionic polymer-metal composite actuators` *Journal of Applied Physics* *in review*
-* Kim, K.J.; ``Pugal, D.``; Leang, K. (2011) `A Twistable Ionic Polymer-Metal Composite Artificial Muscle for Marine Applications` *Marine Technology Society Journal* *accepted*
-* ``Pugal, D.``; Solin, P.; Kim, K.J., Aabloo, A. (2011) `Modeling Ionic Polymer-Metal Composites with Space-Time Adaptive Multimesh hp-FEM` *Communications in Computational Physics* *accepted*
+Academic experience
+-------------------
+
+I received BA *cum laude* and MA *cum laude* degrees in applied physics
+from `University of Tartu
+<http://www.ut.ee/>`_ in 2005 and 2008, respectively. During the
+undergraduate study I had an opportunity to design and build electronics and
+to write low level software for an underwater robot (Ph.D. project of
+my former colleague Madis Listak). The results are published in
+various peer-reviewed international journals 
+and proceedings (see :ref:`publications`).
+
+In 2006 I shifted my focus on more fundamental research, namely,
+I started working on developing a physics based model of ionic
+polymer-metal composite (IPMC) actuators and sensors. It involved
+describing the phenomena using partial differential equations
+with all necessary boundary conditions in a way that the problem
+can be solved using finite element method (FEM).
+The simulations were carried out using Comsol Multiphysics software.
+
+Overall, my academic work has resulted in :ref:`7 journal articles <journal>`  
+and over :ref:`13 conference proceedings <conference>`. The total number
+of academic publications with my involvement is shown below:
+
+.. image:: img/nr_publications.png
+	:width: 500px
+	:align: center
+	:alt: Total number of publications
+
+
+Work experience
+---------------
+
+.. _publications:
+
+List of publications
+--------------------
+
+.. _journal:
+
+Journal articles:
+^^^^^^^^^^^^^^^^^
+
+* ``Pugal, D.``; Solin, P.; Kim, K.J., Aabloo, A. (2011) `Modeling Ionic Polymer-Metal Composites with Space-Time Adaptive Multimesh hp-FEM <http://dx.doi.org/10.4208/cicp.081110.180311a>`_ *Communications in Computational Physics* **11** (1), 249 - 270
+* ``Pugal, D.``; Kim, K.J.; Aabloo, A. (2011) `An explicit physics-based model of ionic polymer-metal composite actuators <http://link.aip.org/link/doi/10.1063/1.3650903>`_ *Journal of Applied Physics* *110* 084904
+* Kim, K.J.; ``Pugal, D.``; Leang, K. (2011) `A Twistable Ionic Polymer-Metal Composite Artificial Muscle for Marine Applications <http://dx.doi.org/10.4031/MTSJ.45.4.9>`_ *Marine Technology Society Journal* **45** (4), 83 - 98
 * ``Pugal, D.``; Jung, K.; Aabloo, A.; Kim, K. (2010). `Ionic polymer-metal composite mechanoelectrical transduction: review and perspectives. <http://www3.interscience.wiley.com/search/allsearch?mode=viewselected&product=journal&ID=123238505&view_selected.x=35&view_selected.y=15&view_selected=view_selected>`_  *Polymer International*, **59** (3), 279 - 289.
 * Park, I.S.; Kim, S.M.; ``Pugal, D.``; Huang, L.; Tam-Chang, S.W.; Kim, K.J. (2010). `Visualization of the cation migration in ionic polymer-metal composite under an electric field <http://dx.doi.org/10.1063/1.3293290>`_ *Applied Physics Letters*, **96**, 043301
 * ``Pugal, D.``; Kim, K.J.; Punning, A.; Kasemägi, H.; Kruusmaa, M.; Aabloo, A. (2008). `Finite A self-oscillating ionic polymer-metal composite bending actuator <http://dx.doi.org/10.1063/1.2903478>`_, *Journal of Applied Physics*, **103** (8), 084908
 * Kim, D.; Kim, K. J.; Tak, Y.; ``Pugal, D.``; Park, Il-S. (2007). `Self-oscillating electroactive polymer actuator <http://dx.doi.org/10.1063/1.2735931>`_, *Applied Physics Letters*, **90**, 184104
 
+.. _conference:
 
 Conference proceedings:
 ^^^^^^^^^^^^^^^^^^^^^^^
