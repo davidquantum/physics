@@ -6,9 +6,9 @@ About me
 Contact
 -------
 
-* Current cell: (001) 775 453 3613
+* Cell: (001) 775 453 3613
 * Estonian number (redirected to my US cell): 712 3613
-* E-mail: david.pugal[ääät}gmail.com 
+* E-mail: david.pugal[ät}gmail.com 
 * Skype: david_quantum 
 
 Postal address:
@@ -31,7 +31,7 @@ and proceedings (see :ref:`publications`).
 In 2006 I shifted my focus on more fundamental research, namely,
 I started working on developing a physics based model of ionic
 polymer-metal composite (IPMC) actuators and sensors. It involved
-describing the phenomena using partial differential equations
+describing the underlying physics using partial differential equations
 with all necessary boundary conditions in a way that the problem
 can be solved using finite element method (FEM).
 The simulations were carried out using Comsol Multiphysics software.
@@ -60,7 +60,7 @@ Journal articles:
 ^^^^^^^^^^^^^^^^^
 
 * ``Pugal, D.``; Solin, P.; Kim, K.J., Aabloo, A. (2011) `Modeling Ionic Polymer-Metal Composites with Space-Time Adaptive Multimesh hp-FEM <http://dx.doi.org/10.4208/cicp.081110.180311a>`_ *Communications in Computational Physics* **11** (1), 249 - 270
-* ``Pugal, D.``; Kim, K.J.; Aabloo, A. (2011) `An explicit physics-based model of ionic polymer-metal composite actuators <http://link.aip.org/link/doi/10.1063/1.3650903>`_ *Journal of Applied Physics* *110* 084904
+* ``Pugal, D.``; Kim, K.J.; Aabloo, A. (2011) `An explicit physics-based model of ionic polymer-metal composite actuators <http://link.aip.org/link/doi/10.1063/1.3650903>`_ *Journal of Applied Physics* **110** 084904
 * Kim, K.J.; ``Pugal, D.``; Leang, K. (2011) `A Twistable Ionic Polymer-Metal Composite Artificial Muscle for Marine Applications <http://dx.doi.org/10.4031/MTSJ.45.4.9>`_ *Marine Technology Society Journal* **45** (4), 83 - 98
 * ``Pugal, D.``; Jung, K.; Aabloo, A.; Kim, K. (2010). `Ionic polymer-metal composite mechanoelectrical transduction: review and perspectives. <http://www3.interscience.wiley.com/search/allsearch?mode=viewselected&product=journal&ID=123238505&view_selected.x=35&view_selected.y=15&view_selected=view_selected>`_  *Polymer International*, **59** (3), 279 - 289.
 * Park, I.S.; Kim, S.M.; ``Pugal, D.``; Huang, L.; Tam-Chang, S.W.; Kim, K.J. (2010). `Visualization of the cation migration in ionic polymer-metal composite under an electric field <http://dx.doi.org/10.1063/1.3293290>`_ *Applied Physics Letters*, **96**, 043301
@@ -74,9 +74,10 @@ Conference proceedings:
 * Kim, S.J.; ``Pugal, D``; Wong, J.; Kim, K.J.; Yim, W. (2011) `A bio-inspired multi degree of freedom actuator based on a novel cylindrical ionic polymer-metal composite material` *The 15th International Conference on Advanced Robotics (ICAR) 2011*, Tallinn, Estonia
 * ``Pugal, D.``; Kim, K.J.; Leang, K.K.; Palmre, V. (2011) `Modeling and designing IPMCs for twisting motion: electromechanical and mechanoelectrical transduction` *Electroactive Polymer Actuators and Devices (EAPAD) 2011*, Proc. SPIE **7976**, p. 79761S. San Diego, CA, USA
 * ``Pugal, D.``; Kim, K.J.; Solin, P.; Aabloo, A. (2011) `A novel hp-FEM model for IPMC actuation` *Behavior and Mechanics of Multifunctional Materials and Composites 2011* Proc. SPIE **7978**, p. 79780E. San Diego, CA, USA
+* Kim, S.J; ``Pugal, D``; Jung, Y; Wong, J; Kim, K.J; Yim, W. (2010). `A Rod-Shaped Ionic Polymer-Metal Composite for Use as an Active Catheter-Platform. <http://link.aip.org/link/abstract/ASMECP/v2010/i44168/p145/s1>`_ *ASME 2010 Conference on Smart MAterials, Adaptive Structures and Intelligent Systems (SMASIS2010)* **2010** (44168) 145-151. Philadelphia, PA, USA
 * ``Pugal, D``; Kim, S.J.; Kim, K.J.; Leang, K.K. (2010). `IPMC: recent progress in modeling, manufacturing, and new applications. <http://dx.doi.org/10.1117/12.848281>`_ *Electroactive Polymer Actuators and Devices (EAPAD) 2010* Proc. SPIE **7642**, p.76420U. San Diego, CA, USA
 * ``Pugal, D``; Kim, K.J; Aabloo, A. (2010). `Modeling the transduction of IPMC in 3D configurations. <http://dx.doi.org/10.1117/12.847958>`_ *Behavior and Mechanics of Multifunctional Materials and Composites 2010* Proc. SPIE **7644**, p.76441T. San Diego, CA, USA
-* ``Pugal, D``; Aabloo, A; Kim, K.J; Jung, Y. (2009). `Modeling IPMC Material With Dynamic Surface Characteristics. <http://www.asmedl.org/dbt/dbt.jsp?KEY=ASMECP&Volume=2009&Issue=48975>`_ ASME 2009 Conference on Smart Materials, Adaptive Structures and Intelligent Systems (SMASIS2009) **2** 115-122. Oxnard, CA
+* ``Pugal, D``; Aabloo, A; Kim, K.J; Jung, Y. (2009). `Modeling IPMC Material With Dynamic Surface Characteristics. <http://www.asmedl.org/dbt/dbt.jsp?KEY=ASMECP&Volume=2009&Issue=48975>`_ *ASME 2009 Conference on Smart Materials, Adaptive Structures and Intelligent Systems (SMASIS2009)* **2** 115-122. Oxnard, CA
 * ``Pugal, D.``; Aabloo, A.; Kim, Kwang J (2009) `Dynamic surface resistance model of IPMC <http://dx.doi.org/10.1117/12.815824>`_, *Behavior and Mechanics of Multifunctional Materials and Composites 2009* Proc. SPIE, **7289**, p.72891E. San Diego, CA, USA
 * ``Pugal, D.``; Kasemägi H.; Kruusmaa M.; and Aabloo A. (2008). `An advanced finite element model of IPMC <http://dx.doi.org/10.1117/12.776610>`_, *Electroactive Polymer Actuators and Devices (EAPAD) 2008* Proc. of SPIE **6927** p.692711. San Diego, CA, USA 
 * ``Pugal, D.``; Kasemägi, H.; Kim, KJ, Kruusmaa, M.; and Aabloo, A. (2007). `Finite element simulations of the bending of the IPMC sheet <http://dx.doi.org/10.1117/12.715966>`_, *Electroactive Polymer Actuators and Devices (EAPAD) 2007* Proc of SPIE **6524**, p.65240B. San Diego, CA, USA
@@ -87,7 +88,8 @@ Conference proceedings:
 
 Conference presentations
 ^^^^^^^^^^^^^^^^^^^^^^^^
-* ``Pugal, D.``; Jung, Y.; Aabloo, A.; Kim, J.K. (2009) "Efficient Model Of The Electrodes of IPMC", *ASME International Mechanical Engineering Congress & Expo 2009*, November 13-19, Lake Buena Vista, FL, U.S.A, *Technical Presentation*
+* ``Pugal, D.``; Solin, P.; Kim, K.J.; (2011) "Using *hp*-FEM to Model Actuation of IPMC Materials" *3rd International Conference on Computational Methods in Engineering and Science (FEMTEC2011)*, May 9-13, South Lake Tahoe, CA, USA 
+* ``Pugal, D.``; Jung, Y.; Aabloo, A.; Kim, K.J (2009) "Efficient Model Of The Electrodes of IPMC", *ASME International Mechanical Engineering Congress & Expo 2009*, November 13-19, Lake Buena Vista, FL, U.S.A, *Technical Presentation*
 
 
 Misc
