@@ -64,7 +64,7 @@ Journal articles:
 * Kim, K.J.; ``Pugal, D.``; Leang, K. (2011) `A Twistable Ionic Polymer-Metal Composite Artificial Muscle for Marine Applications <http://dx.doi.org/10.4031/MTSJ.45.4.9>`_ *Marine Technology Society Journal* **45** (4), 83 - 98
 * ``Pugal, D.``; Jung, K.; Aabloo, A.; Kim, K. (2010). `Ionic polymer-metal composite mechanoelectrical transduction: review and perspectives. <http://www3.interscience.wiley.com/search/allsearch?mode=viewselected&product=journal&ID=123238505&view_selected.x=35&view_selected.y=15&view_selected=view_selected>`_  *Polymer International*, **59** (3), 279 - 289.
 * Park, I.S.; Kim, S.M.; ``Pugal, D.``; Huang, L.; Tam-Chang, S.W.; Kim, K.J. (2010). `Visualization of the cation migration in ionic polymer-metal composite under an electric field <http://dx.doi.org/10.1063/1.3293290>`_ *Applied Physics Letters*, **96**, 043301
-* ``Pugal, D.``; Kim, K.J.; Punning, A.; Kasemägi, H.; Kruusmaa, M.; Aabloo, A. (2008). `Finite A self-oscillating ionic polymer-metal composite bending actuator <http://dx.doi.org/10.1063/1.2903478>`_, *Journal of Applied Physics*, **103** (8), 084908
+* ``Pugal, D.``; Kim, K.J.; Punning, A.; Kasemägi, H.; Kruusmaa, M.; Aabloo, A. (2008). `A self-oscillating ionic polymer-metal composite bending actuator <http://dx.doi.org/10.1063/1.2903478>`_, *Journal of Applied Physics*, **103** (8), 084908
 * Kim, D.; Kim, K. J.; Tak, Y.; ``Pugal, D.``; Park, Il-S. (2007). `Self-oscillating electroactive polymer actuator <http://dx.doi.org/10.1063/1.2735931>`_, *Applied Physics Letters*, **90**, 184104
 
 .. _conference:
@@ -84,7 +84,6 @@ Conference proceedings:
 * Listak, M.; ``Pugal, D.``; Kruusmaa, M. (2007). Computational Fluid Dynamics Simulations of a Biomimetic Underwater Robot, *13th International Conference on Advanced Robotics*  Korea, Jeju, 21-24 August, 2007. IEEE, 2007, 314 - 319
 * Listak, M.; ``Pugal, D``; Kruusmaa, M (2007). Biomimetic fish-like underwater robot for shallow water applications, *13th International Conference on Advanced Robotics*, Korea, Jeju, 21-24 August, 2007. IEEE, 2007, 332 - 336
 * Listak, M.; Martin, G.; ``Pugal, D.``; Aabloo, A.; Kruusmaa, M. Design of a semiautonomous biomimetic underwater vehicle for environmental monitoring *6th IEEE International Symposium on Computational Intelligence in Robotics and Automation (CIRA 2005)*; Espoo, Finland; June 2005 IEEE, 2005, 9-14
-* Listak, M.; Martin, G.; ``Pugal, D.``; Aabloo, A.; Kruusmaa, M. Task-oriented Design of an Underwater Vehicle for Environmental Monitoring in The Baltic Sea. *Proceedings of the IARP: International Workshop on Underwater Robotics (IWUR 2005)*; Genova, Italy; November 2005, Genova: IARP
 
 Conference presentations
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -94,4 +93,5 @@ Conference presentations
 
 Misc
 ^^^^
+* Listak, M.; Martin, G.; ``Pugal, D.``; Aabloo, A.; Kruusmaa, M.; (2005) Task-oriented Design of an Underwater Vehicle for Environmental Monitoring in The Baltic Sea. *Proceedings of the IARP: International Workshop on Underwater Robotics (IWUR 2005)*; Genova, Italy; November 2005, Genova: IARP
 * ``Pugal, D.``; Listak, M. (2005). Allveerobot Läänemere keskkonnaseireks. *A & A*, **5**, 22 - 31.
