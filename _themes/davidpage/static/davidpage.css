@@ -1,0 +1,75 @@
+@import url("agogo.css");
+
+body {
+    font: 100% Arial, FreeSans, sans-serif;
+    /*background: White;*/
+    color: Black;
+}
+
+div.header div.rel {
+  margin-top: -1em;
+}
+
+div.header div.rel a {
+  color: {{ theme_headerlinkcolor }};
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  font-size: 80%;
+}
+
+div.header-wrapper {
+  background: {{ theme_headerbg }};
+  border-bottom: 2px solid #2e3436;
+}
+
+div.body h1,
+div.body h2,
+div.body h3,
+div.body h4,
+div.body h5,
+div.body h6 {
+    color: Black;
+    background-color: White;
+    font-weight: bold;
+    line-height: 100%;
+    border: none;
+    font: "Helvetica Neue",Arial,FreeSans,sans-serif;
+}
+
+div.sidebar {
+    background-color: #fbfbfb;
+    border: none;
+    -moz-border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    border-radius: 0.5em; 
+    -moz-box-shadow: 10px 10px 5px #888;
+    -webkit-box-shadow: 10px 10px 5px #888;
+    box-shadow: 10px 10px 5px #888;
+    padding: 0.3em;
+}
+
+div.sidebar h3,
+div.sidebar .search,
+div.sidebar .searchtip {
+}
+
+li.toctree-l1,
+li.toctree-l2,
+li.toctree-l3,
+li.toctree-l4,
+li.toctree-l5,
+li.toctree-l6 {
+    list-style-type: none;
+    font-weight: bold;
+    margin-bottom: 0em !important;
+}
+
+a:link, a:visited {
+    color: #205c90;
+    text-decoration: none;
+}
+
+a:link:hover,
+a:visited:hover {
+    color: #75ad0a;
+}

@@ -234,7 +234,9 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  Major themes that come with
 # Sphinx are currently 'default' and 'sphinxdoc'.
 #html_theme = 'default'
-html_theme = 'agogo'
+#html_theme = 'agogo'
+html_theme = 'davidpage'
+#html_theme = 'haiku'
 
 #html_theme_options = {
 #'bodyfont': '"Lucida Grande", "Lucida Sans Unicode", arial, verdana, helvetica, sans-serif',
@@ -265,6 +267,7 @@ html_theme = 'agogo'
 #html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
+html_theme_path = ['_themes']
 #html_theme_path = []
 
 # The name for this set of Sphinx documents.  If None, it defaults to
