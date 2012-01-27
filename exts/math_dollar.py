@@ -41,7 +41,7 @@ def process_dollars(app, docname, source):
     dollars = re.compile(r"(?<!\$)(?<!\\)\$([^\$]+?)\$")
     # regular expression for \$
     slashdollar = re.compile(r"\\\$")
-    s = dollars.sub(r":math:`\1`", s)
+    s = dollars.sub(r":math:`\1 \\ `", s)
     s = slashdollar.sub(r"$", s)
     # change the original {...} things in:
     for r in _data:

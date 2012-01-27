@@ -23,7 +23,8 @@ sys.path.append(os.path.abspath('exts'))
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.pngmath', 'math_dollar']
+#extensions = ['sphinx.ext.autodoc', 'sphinx.ext.pngmath', 'math_dollar']
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.mathjax', 'math_dollar']
 
 latex_preamble = r"""
 \usepackage{dsfont}
@@ -155,7 +156,7 @@ latex_preamble = r"""
 %$$\varphi\bvarphi$$
 
 %small font
-\font\mibsmall=cmmib7
+%\font\mibsmall=cmmib7
 \def\bsigmasmall{\hbox{\mibsmall\char"1B}}
 
 \def\Tr{\hbox{Tr}\,}
@@ -165,6 +166,8 @@ latex_preamble = r"""
 
 pngmath_latex_preamble = latex_preamble
 latex_elements = {"preamble": latex_preamble}
+
+jsmath_path = ['jsMath36e/easy/load.js']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -179,8 +182,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Physics'
-copyright = u'2010, David Pugal'
+project = u'David\'s homepage'
+copyright = u'2012, David Pugal'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -310,10 +313,10 @@ html_sidebars = {
 #html_additional_pages = {}
 
 # If false, no module index is generated.
-html_use_modindex = False
+html_use_modindex = True 
 
 # If false, no index is generated.
-html_use_index = False 
+html_use_index = True 
 
 # If true, the index is split into individual pages for each letter.
 html_split_index = False

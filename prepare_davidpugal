@@ -1,0 +1,7 @@
+#!/bin/bash
+
+make clean
+make html
+
+rm -r html
+cp -r _build/html .

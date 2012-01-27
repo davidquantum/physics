@@ -4,7 +4,7 @@ Functional Analysis
 Linear space
 ------------
 
-A simple way to test if a space $V$ is a **linear space** is to see if
+A simple way to test if a space $\ V\ $ is a **linear space** is to see if
 
 #. the space is equipped with two operations
 
@@ -55,9 +55,7 @@ Linear combination
 Let $V$ be a linear space and $v_1,\, v_2\in V$ and $c_1,\, c_2\in \mathbb{R}$  then the element $v$
 
 .. math::
-	:label: linear combination
-
-		v=\sum_{i=1}^n c_i v_i
+	v=\sum_{i=1}^n c_i v_i
 
 of $V$ is a linear combination of the elements $v_1,\, v_2,\, \dots, \, v_n$ with the
 coefficients $c_1,\, c_2,\, \dots, \, c_n$
@@ -66,7 +64,7 @@ Linear span, sum and direct sum of subspaces
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let $V$ be a linear space and $v_1,\, v_2,\, \dots, \, v_n \in V$ then linear span
-$\left[ v_1,\, v_2, \, \dots ,\, v_n\right]$ or $span\left\{ v_1,\, v_2, \, \dots ,\, v_n\right\}$
+$\left[ v_1,\, v_2, \, \dots ,\, v_n\right]$ or $\mathrm{span}\left\{ v_1,\, v_2, \, \dots ,\, v_n\right\}$
 is the smallest subspace of $V$ containing $v_1,\, v_2,\, \dots \, v_n$.
 In the other words, $v_1,\, v_2,\, \dots, \, v_n$ are said to span $V$ if every element $v \in V$
 can be expressed as a linear combination of $v_1,\, v_2,\, \dots, \, v_n$
@@ -91,9 +89,7 @@ Let $W_1$ and $W_2$ be subspaces  of a linear space $V$.
 Then we define
 
 .. math::
-	:label: sum 
-
-	        W_1+W_2=\left[W_1\cup W_2\right]
+	W_1+W_2=\left[W_1\cup W_2\right]
 
 which is the linear span of the union of $W_1$ and $W_2$.
 For instance, let $V=P^3$, and 
@@ -152,9 +148,7 @@ $V$ is said to be the **dimension** of $V$, denoted $dim\left( V \right)$.
  Any element $v\in V$ can be uniquely expressed in the form
 
 .. math::
-        :label: expansion coefficients 
-
-                v=\sum_{i=1}^n \alpha_iv_i,
+	v=\sum_{i=1}^n \alpha_iv_i,
 
 where $B=\left\{v_1,\ v_2,\dotsc,v_n\right\}$ and $\alpha_i$ are expansion coefficients.
 
@@ -169,9 +163,7 @@ all bijections of the set ${1,2,...n}$ into itself, e.g. a permutation $123\righ
 is a function $f:{1,2,3}\rightarrow {1,2,3}$ that assigns:
 
 .. math::
-	:label: bijection
-
-		f\left( 1 \right) = 3,\ \ \ f\left( 2 \right) = 1,\ \ \ f\left(3 \right) = 2.
+	f\left( 1 \right) = 3,\ \ \ f\left( 2 \right) = 1,\ \ \ f\left(3 \right) = 2.
 
 For a permutation $P \in S_{n}$ let $m$ be a number of pairs $(i,j)\ \set {1,2,...,n},\ i<j$
 such that $P(i)>P(j)$.
