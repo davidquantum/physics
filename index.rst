@@ -6,9 +6,11 @@
 ..	David's homepage 
 ..	================
 
+.. contents:: Menu
+
 .. toctree::
     :maxdepth: 2
 
     src/introduction
     src/math
-..    src/projects
+    src/projects

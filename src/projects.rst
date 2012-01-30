@@ -13,11 +13,20 @@ Physics of Ionic polymer-metal composites
 hp-FEM
 ^^^^^^
 
+
 Software development
 --------------------
+
 
 Robotics and electronics
 ------------------------
 
 
+Legacy
+------
+Some of the older legacy projects:
 
+.. toctree::
+	:maxdepth: 1
+
+	legacy
