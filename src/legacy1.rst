@@ -88,4 +88,3 @@ Pilte
 	:align: center
 
 	Avatud kaanega
-

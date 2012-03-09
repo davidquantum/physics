@@ -36,6 +36,32 @@ div.body h6 {
     font: "Helvetica Neue",Arial,FreeSans,sans-serif;
 }
 
+div.body h2,
+div.body h3,
+div.body h4,
+div.body h5,
+div.body h6 {
+	color:  #444444;
+	margin-top: 0.5em;
+	margin-bottom: 0.2em;
+	padding-left: 0.2em;
+	letter-spacing: -1px;
+}
+
+div.body h2 {
+	font-size: 1.375em;
+}
+
+div.body h3 {
+	font-size: 1.125em;
+}
+
+div.body h4,
+div.body h5,
+div.body h6 {
+	font-size: 0.875em;
+}
+
 div.sidebar {
     background-color: #fbfbfb;
     border: none;
@@ -53,6 +79,11 @@ div.sidebar .search,
 div.sidebar .searchtip {
 }
 
+div.document ul {
+	margin: 0.2em;
+}
+
+
 li.toctree-l1,
 li.toctree-l2,
 li.toctree-l3,
@@ -61,15 +92,17 @@ li.toctree-l5,
 li.toctree-l6 {
     list-style-type: none;
     font-weight: bold;
-    margin-bottom: 0em !important;
+    margin-bottom: 0.0em !important;
 }
 
 a:link, a:visited {
-    color: #205c90;
+    /*color: #205c90;*/
+    color: #444444;
     text-decoration: none;
 }
 
 a:link:hover,
 a:visited:hover {
-    color: #75ad0a;
+   /*color: #75ad0a;*/
+    color: #444444;
 }

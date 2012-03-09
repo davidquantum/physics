@@ -1,0 +1,131 @@
+cls()
+//gosub .SetupAcq               // Full vertical binning
+//gosub .SetupAccumulateAcq     // Accumulated measurments (full vertical binning)
+//gosub .SetBgCorrectedAcq      // Background corrected measurments (full vertical binning)
+//gosub .SetBgCorrectedAccAcq   // Accumulated, background corrected measurments (full vertical binning)
+//gosub .SetSingleTrackMode     // Single track
+
+gosub .SetSingleTrackBgCorrected	// single track, background corrected
+
+//gosub .SetSingleTrackAccumulated 	// single track, accumulated
+
+//gosub .SetSingleTrackAccBgCorrected // single track, accumulated, Background corrected
+SetTriggerMode(0)       //0,  internal triggering, 1 external triggering
+counter = 1
+input("Enter filename, where to save all data", f$)
+if len(f$) <> 0 then
+
+g$="C:\Spectro\";f$
+Write("C:\Spectro\input.inf", f$)
+
+// while counter < 100			// kasuta seda rida siis, kui on vaja mingi kindel arv m66tmisi
+while counter<>0				// kasuta seda rida siis, kui m66tmiste arv pole teada..
+	//key("Hit any key to measure")	
+	run()
+		// siia kirjutada m66tmiste vahemikud (arv ei ole piiratud)
+		// n2iteks write(g$, #0[100]) kirjutab faili 100nda rea (mis on vertikaalselt kokku liidetud)
+		// ehk siis full vertical binning rezhiimis
+	write(g$, abs(#0[1]))
+	write(g$, abs(#0[3]))
+		// NB! kui m66tmistulemused on Spectro programmi jaoks ja mode on Background corrected,
+		// siis v6iks kasutada varianti write(g$, abs(#0[100])) ehk siis kirjutab absoluutv22rtuse faili
+//	write(g$, abs(#0[600]))
+//	write(g$, abs(#0[500]))
+//	write(g$, abs(#0[400]))
+		//  -1 peab j‰‰ma!!
+	write(g$, "-1")
+	close()
+	counter=counter+1
+wend
+
+endif //for if len($f)<>0
+//*******************  program ends here  **************************
+.SetupAcq
+  SetAcquisitionMode(1)                     // Single scan
+  SetReadoutMode(0)			    			// Readout mode. 0=Full Vertical Binning
+  SetDatatype(1)                            // Counts
+  SetAcquisitionType(0)                     // signal
+  SetExposureTime(0.1)                     	// M66tmise aeg!!!!
+  ShowTimings()
+return
+
+.SetupAccumulateAcq
+  SetReadoutMode(0)			    			// Readout mode. 0=Full Vertical Binning
+  SetDatatype(1)                            // Counts
+  SetAccumulate(0.1, 50, 0.1)				// Exposure time, Number of Accumulations, Accumulation Cycle time
+  ShowTimings()
+ return
+ 
+.SetBgCorrectedAcq
+  SetAcquisitionMode(1)                     // Single scan
+  SetReadoutMode(0)
+  SetTriggerMode(0)                         // Internal triggering
+  SetExposureTime(2)                     	// M66tmise aeg!!!!
+  SetDataType(2)							// 2= counts(background corrected)
+  SetAcquisitionType(1)						// for getting background
+  key ("Shield spectrograph from light sources then press any key to acquire a background reading.")
+  run()
+  SetAcquisitionType(0)						// Signaali v6tmiseks
+  ShowTimings()
+ return
+ 
+.SetBgCorrectedAccAcq
+  SetAcquisitionMode(2)                     // Single scan
+  SetReadoutMode(0)							// 0=FVB, 1=Multitrack, 3=Single Track 
+  SetTriggerMode(0)                         // Internal triggering
+  SetAccumulate(0.1, 50, 0.1)				// Exposure time, Number of Accumulations, Accumulation Cycle time
+  SetDataType(2)							// 2= counts(background corrected)
+  SetAcquisitionType(1)						// for getting background
+  key ("Shield spectrograph from light sources then press any key to acquire a background reading.")
+  run()
+  SetAcquisitionType(0)						// Signaali v6tmiseks
+  SetAccumulate(0.1, 50, 0.1)				// Exposure time, Number of Accumulations, Accumulation Cycle time
+  ShowTimings()
+
+return
+ 
+.SetSingleTrackMode
+  SetAcquisitionMode(1)
+  SetSingleTrack(128,128,50)				//Single track (bins horisontally too)
+  											//Center row, height of track (pixels), horisontal binning
+  SetExposureTime(0.1)						//Exposure Time
+ 
+ 
+ return
+ 
+.SetSingleTrackAccumulated
+  SetAcquisitionMode(2)						//accumulated=2
+  SetSingleTrack(128,128,50)				//Single track (bins horisontally too) (readout mode = 3)
+   											//Center row, height of track (pixels), horisontal binning
+  SetDatatype(1)                            // Counts
+  SetAccumulate(0.1, 50, 0.1)				// Exposure time, Number of Accumulations, Accumulation Cycle time
+  
+  ShowTimings()
+return
+
+
+.SetSingleTrackBgCorrected
+  SetAcquisitionMode(1)                     // Single scan=1
+  SetSingleTrack(128,128,50)
+  SetTriggerMode(0)                         // Internal triggering
+  SetExposureTime(0.02)
+  SetDataType(2)							// 2= counts(background corrected)
+  SetAcquisitionType(1)						// for getting background
+  key ("Shield spectrograph from light sources then press any key to acquire a background reading.")
+  run()
+  SetAcquisitionType(0)						// Signaali v6tmiseks
+  ShowTimings()
+return
+
+
+.SetSingleTrackAccBgCorrected
+  SetAcquisitionMode(2)                     // Single scan
+  SetSingleTrack(128,128,50)
+  SetTriggerMode(0)                         // Internal triggering
+  SetAccumulate(0.1, 50, 0.1)				// Exposure time, Number of Accumulations, Accumulation Cycle time
+  SetDataType(2)							// 2= counts(background corrected)
+  SetAcquisitionType(1)						// for getting background
+  key ("Shield spectrograph from light sources then press any key to acquire a background reading.")
+  run()
+  SetAcquisitionType(0)						// Signaali v6tmiseks
+return
