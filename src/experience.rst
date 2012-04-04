@@ -10,8 +10,8 @@ Academic experience
 I received BSc *cum laude* and MSc *cum laude* degrees in applied physics
 from `University of Tartu (Estonia)
 <http://www.ut.ee/>`_ in 2005 and 2008, respectively.
-During the undrgraduate study I worked on designing and
-building electroncis and writing low level software for an
+During the undrgraduate study I designed and
+built electroncis and wrote low level software for an
 underwater robot (project of
 my former colleague Madis Listak). The results are published in
 various peer-reviewed international journals 
@@ -29,14 +29,14 @@ polymer-metal composite (IPMC) actuators and sensors in professor
 	:align: left
 	:alt: Total number of publications
 
-In the same year I visited professor 
+Thereafter I visited professor 
 `Kwang J. Kim laboratory <http://www.kwangjinkim.org>`_
 at `University of Nevada, Reno (UNR) <http://www.unr.edu>`_
 as a research scholar for two semesters. 
 In 2008 I defended MSc *cum laude* at University of Tartu
 mainly based on the research carried out at UNR. 
 
-Thereafter I continued my studies and research
+I continued my studies and research
 as a Ph.D. student  
 in professor Kim's work group at UNR. I have also been collaborating
 with professor `Pavel Solin <http://hpfem.org/~pavel/>`_ since 2010 in 
@@ -84,7 +84,7 @@ List of publications
 Journal articles:
 ^^^^^^^^^^^^^^^^^
 
-* S.-I. Son, **D. Pugal**, T. Hwang, H. R. Choi, J. C. Koo, Y. Lee, K. J. Kim, and J. D. Nam, "An Electro-Mechanically Driven Transparent Dielectric Elastomer Suitable for Use as a Variable Focus Lens," (under review)
+* S.-I. Son, **D. Pugal**, T. Hwang, H. R. Choi, J. C. Koo, Y. Lee, K. J. Kim, and J. D. Nam, "An Electro-Mechanically Driven Transparent Dielectric Elastomer Suitable for Use as a Variable Focus Lens," accepted in *Applied Optics*
 * **D. Pugal**, P. Solin, K. J. Kim, and A. Aabloo, `"Modeling Ionic Polymer-Metal Composites with Space-Time Adaptive Multimesh hp-FEM," <http://dx.doi.org/10.4208/cicp.081110.180311a>`_ *Communications in Computational Physics*, Vol. 11, No. 1, pp. 249-270 (2012);
 * **D. Pugal**, K. J. Kim, and A. Aabloo, `"An Explicit Physics-based Model of Ionic Polymer-Metal Composite Actuators," <http://link.aip.org/link/doi/10.1063/1.3650903>`_ *Journal of Applied Physics*, Vol. 110, pp. 084904 (2011);
 * K.J. Kim, **D. Pugal**, and K. K. Leang, `"A Twistable Ionic Polymer-Metal Composite Artificial Muscle for Marine Applications," <http://dx.doi.org/10.4031/MTSJ.45.4.9>`_ *the Marine Technology Society (MTS) Journal*, Vol. 45, No. 4, pp. 83-98 (2011);
