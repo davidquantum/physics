@@ -1,9 +1,37 @@
 @import url("agogo.css");
 
+div.document {
+	width: 60em;
+	float: left;
+}
+
+div.document .section {
+	margin-top: 1.4em;
+}
+
+div.header, div.content, div.footer {
+	width: 80em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 body {
-    font: 100% Arial, FreeSans, sans-serif;
+    font: small Verdana, Arial, FreeSans, sans-serif;
     /*background: White;*/
     color: Black;
+}
+
+div.header {
+	padding-top: 10px;
+	padding-bottom: 0px;
+}
+
+div.header .headertitle {
+	font-family {{ theme_headerfont }};
+	font-weight: normal;
+	font-size: 130%;
+	letter-spacing: .08em;
+	margin-bottom: .3em;
 }
 
 div.header div.rel {
@@ -33,7 +61,9 @@ div.body h6 {
     font-weight: bold;
     line-height: 110%;
     border: none;
-    font: "Helvetica Neue",Arial,FreeSans,sans-serif;
+    font-size: 1.5em;
+    font-family: Verdana, Arial, FreeSans, sans-serif;
+    margin-bottom: .3em;
 }
 
 div.body h2,
@@ -44,16 +74,15 @@ div.body h6 {
 	color:  #444444;
 	margin-top: 0.5em;
 	margin-bottom: 0.2em;
-	padding-left: 0.2em;
 	letter-spacing: -1px;
 }
 
 div.body h2 {
-	font-size: 1.375em;
+	font-size: 1.4em;
 }
 
 div.body h3 {
-	font-size: 1.125em;
+	font-size: 1.2em;
 }
 
 div.body h4,
@@ -62,8 +91,29 @@ div.body h6 {
 	font-size: 0.875em;
 }
 
+strong {
+	font-size: 1.0em;
+}
+
+div.admonition {
+	margin-top: 5px;
+	margin:bottom: 5px;
+	padding: 2px 7px 1px 7px;
+	border: 0.1em solid #FCAF3E;
+    	-moz-border-radius: 0.5em;
+	-webkit-border-radius: 0.5em;
+	border-radius: 0.5em;
+	width: 20em;
+}
+
+.line-block {
+	display: block;
+	margin-top: 0.1em;
+	margin-bottom: 0.1em;
+}
+
 div.sidebar {
-    background-color: #fbfbfb;
+    background-color: #fafafa;
     border: none;
     -moz-border-radius: 0.5em;
     -webkit-border-radius: 0.5em;
@@ -71,16 +121,12 @@ div.sidebar {
     -moz-box-shadow: 10px 10px 5px #888;
     -webkit-box-shadow: 10px 10px 5px #888;
     box-shadow: 10px 10px 5px #888;
-    padding: 0.3em;
+    padding: 0.5em;
 }
 
 div.sidebar h3,
 div.sidebar .search,
 div.sidebar .searchtip {
-}
-
-div.document ul {
-	margin: 0.2em;
 }
 
 
@@ -93,6 +139,22 @@ li.toctree-l6 {
     list-style-type: none;
     font-weight: bold;
     margin-bottom: 0.0em !important;
+    font-size: 1em;
+}
+
+li.toctree-l2,
+li.toctree-l3,
+li.toctree-l4,
+li.toctree-l5,
+li.toctree-l6 {
+    font-size: 0.95em;
+}
+
+li.toctree-l3,
+li.toctree-l4,
+li.toctree-l5,
+li.toctree-l6 {
+    font-size: 0.9em;
 }
 
 a:link, a:visited {

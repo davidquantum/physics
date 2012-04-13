@@ -7,7 +7,6 @@ Contact
 * E-mail: david.pugal[ät}gmail.com 
 * Skype: david_quantum 
 
-|
 | Postal address:
 
 | David Pugal, 
@@ -15,5 +14,4 @@ Contact
 | University of Nevada, Reno,	
 | Reno, NV 89557
 
-.. See also `facebook <http://www.facebook.com/david.pugal>`_ 
 

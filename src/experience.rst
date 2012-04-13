@@ -81,8 +81,8 @@ List of publications
 
 .. _journal:
 
-Journal articles:
-^^^^^^^^^^^^^^^^^
+Journal articles
+^^^^^^^^^^^^^^^^
 
 * S.-I. Son, **D. Pugal**, T. Hwang, H. R. Choi, J. C. Koo, Y. Lee, K. J. Kim, and J. D. Nam, "An Electro-Mechanically Driven Transparent Dielectric Elastomer Suitable for Use as a Variable Focus Lens," accepted in *Applied Optics*
 * **D. Pugal**, P. Solin, K. J. Kim, and A. Aabloo, `"Modeling Ionic Polymer-Metal Composites with Space-Time Adaptive Multimesh hp-FEM," <http://dx.doi.org/10.4208/cicp.081110.180311a>`_ *Communications in Computational Physics*, Vol. 11, No. 1, pp. 249-270 (2012);
@@ -95,8 +95,8 @@ Journal articles:
 
 .. _conference:
 
-Conference proceedings:
-^^^^^^^^^^^^^^^^^^^^^^^
+Conference proceedings
+^^^^^^^^^^^^^^^^^^^^^^
 
 * M . Freudenthal and **D. Pugal**, "Simpl: a Toolkit for Rapid DSL Implementation," Proceedings of the 12th Symposium on Programming Languages and Software Tools, Tallinn, Estonia (October 2011)
 * **D. Pugal**, K. J. Kim, and A. Aabloo, "Advanced Multiphysics Actuation Model of Ionic Polymer-Metal Composites," Comsol Conference 2011, Boston, Massachusetts (2 page extended abstract, October 2011) 

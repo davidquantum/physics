@@ -2,11 +2,10 @@ Projects
 ========
 
 The following summarizes different projects I have worked on over
-the years, both in academia and in industry.
+the years.
 
-| 
-
-**Finite element modeling**
+Finite element modeling
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
 	:maxdepth: 1
@@ -14,9 +13,8 @@ the years, both in academia and in industry.
 	ipmcphysics
 	hpfem
 
-| 
-
-**Software**
+Software
+^^^^^^^^
 
 .. toctree::
 	:maxdepth: 1
@@ -24,9 +22,8 @@ the years, both in academia and in industry.
 	waebric
 	legacy2
 
-| 
-
-**Robotics and electronics** 
+Robotics and electronics 
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
 	:maxdepth: 1

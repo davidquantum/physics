@@ -277,6 +277,8 @@ html_theme_path = ['_themes']
 # "<project> v<release> documentation".
 html_title = 'David\'s homepage' 
 
+raw_enabled = True
+
 # A shorter title for the navigation bar.  Default is the same as html_title.
 html_short_title = 'David\'s homepage'
 

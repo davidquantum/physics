@@ -78,11 +78,6 @@ and required towing force.
 
 	:doc:`Some images and schematics <robotpics>`
 
-Fluid dynamics calculations
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-fafa
-
 .. seealso::
 
 	`Papers and downloads <http://www.ims.ut.ee/mediawiki/index.php/Our_publications#An_Underwater_vehicle_for_environmental_monitoring>`_
