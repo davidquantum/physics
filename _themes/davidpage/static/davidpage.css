@@ -1,5 +1,6 @@
 @import url("agogo.css");
 
+
 div.document {
 	width: 60em;
 	float: left;
@@ -167,4 +168,30 @@ a:link:hover,
 a:visited:hover {
    /*color: #75ad0a;*/
     color: #444444;
+}
+
+
+
+ul#entries {
+	padding: 0 !important;
+}
+
+ul#entries li {
+	clear: both;
+	float: left;
+	width: 100%;
+	list-style: none !important;
+	margin-bottom: 2.5em;
+}
+
+ul#entries li.loading {
+	margin-bottom: 0;
+}
+
+ul#entries li h2 {
+	margin: 0 0 .25em 0 !important;
+}
+
+ul#entries li p.blog_date {
+	margin-bottom: 1.5em !important;
 }

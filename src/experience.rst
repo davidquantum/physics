@@ -12,10 +12,7 @@ from `University of Tartu (Estonia)
 <http://www.ut.ee/>`_ in 2005 and 2008, respectively.
 During the undrgraduate study I designed and
 built electroncis and wrote low level software for an
-underwater robot (project of
-my former colleague Madis Listak). The results are published in
-various peer-reviewed international journals 
-and proceedings (see :ref:`publications`).
+underwater robot (project of my former colleague Madis Listak).
 
 In 2006 I shifted my research focus on more fundamental science --
 I started developing a physics based model of ionic
@@ -29,23 +26,22 @@ polymer-metal composite (IPMC) actuators and sensors in professor
 	:align: left
 	:alt: Total number of publications
 
-Thereafter I visited professor 
+Thereafter, I visited professor 
 `Kwang J. Kim laboratory <http://www.kwangjinkim.org>`_
 at `University of Nevada, Reno (UNR) <http://www.unr.edu>`_
 as a research scholar for two semesters. 
 In 2008 I defended MSc *cum laude* at University of Tartu
 mainly based on the research carried out at UNR. 
 
-I continued my studies and research
-as a Ph.D. student  
+I continued my studies and research as a Ph.D. student  
 in professor Kim's work group at UNR. I have also been collaborating
 with professor `Pavel Solin <http://hpfem.org/~pavel/>`_ since 2010 in 
 implementing the fundamental IPMC equations in $hp$-FEM solver
 `Hermes <http://www.hpfem.org/hermes/>`_.
 
-Overall, my academic work has resulted in :ref:`7 journal articles <journal>`  
+Overall, my academic work has resulted in :ref:`8 journal articles <journal>`  
 and over :ref:`15 conference proceedings <conference>`. The total number
-of academic publications with my involvement is shown below:
+of academic publications with my involvement is shown below.
 
 
 Work experience
@@ -61,7 +57,7 @@ number of different projects that have involved
 technologies such as Oracle Service Bus (OSB), Weblogic, PL/SQL, and 
 various programming languages. 
 For instance, one project was to implement 
-from scratch both parser and compiler for a 
+from scratch compiler for a 
 programming language Waebric using `Simpl
 <http://research.cyber.ee/simpl/>`_ and `Scala <http://www.scala-lang.org/>`_.
 
@@ -70,9 +66,7 @@ programming language Waebric using `Simpl
 	`Waebric source code <https://github.com/simpl-dev/waebric>`_	
 
 From 2004 to 2005 I worked for `H. Eller School <http://www.tmk.ee/>`_ as
-a system administrator. My duties included administrating 
-two linux based servers, a Windows 2003 server (Active Directory, IIS, etc),
-and at least 20 PCs.
+a system administrator.
 
 .. _publications:
 

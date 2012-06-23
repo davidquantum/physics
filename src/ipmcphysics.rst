@@ -1,10 +1,5 @@
-Physics of ionic polymer-metal composits
-========================================
+Physics of ionic polymer-metal composites
+=========================================
 
 
-.. toctree::
-	:maxdepth: 3
-
-	ip
-	hp
 

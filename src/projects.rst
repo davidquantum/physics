@@ -1,17 +1,7 @@
 Projects
 ========
 
-The following summarizes different projects I have worked on over
-the years.
-
-Finite element modeling
-^^^^^^^^^^^^^^^^^^^^^^^
-
-.. toctree::
-	:maxdepth: 1
-
-	ipmcphysics
-	hpfem
+Various interesting projects I have worked on.
 
 Software
 ^^^^^^^^
